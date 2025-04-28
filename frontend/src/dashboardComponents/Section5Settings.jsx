@@ -4,8 +4,7 @@ import {
     useCreateReviewMutation,
     useReadReviewQuery,
     useReadReviewWrapperQuery,
-    useUpdateReviewWrapperMutation,
-    useCreateReviewWrapperMutation
+    useUpdateReviewWrapperMutation
 } from '../features/schoolsApi';
 import SchoolsRating from '../components/SchoolsRating';
 import Section5SettingsReview from './Section5SettingsReview';
@@ -17,14 +16,12 @@ const Section5 = () => {
     const [age, setAge] = useState('');
     const [message, setMessage] = useState('');
     const [rating, setRating] = useState('');
-    const [lock, setLock] = useState(true);
-    const [id, setId] = useState('');
+    const [lock, setLock] = useState(false);
     const [createReview] = useCreateReviewMutation();
     const { data: reviews, isLoading } = useReadReviewQuery();
     const [ratingAverage, setRatingAverage] = useState(0);
     const { data: lockCase } = useReadReviewWrapperQuery();
     const [updateReviewWrapper] = useUpdateReviewWrapperMutation();
-    const [createReviewWrapper] = useCreateReviewWrapperMutation();
 
     useEffect(() => {
         if(reviews && reviews.length > 0) {
@@ -57,8 +54,7 @@ const Section5 = () => {
 
     useEffect(() => {
         if (lockCase !== undefined) {
-            setLock(Boolean(lockCase.reviewState));
-            setId(lockCase._id);
+            setLock(Boolean(lockCase?.reviewState));
         }
     }, [lockCase]);
 
@@ -87,15 +83,7 @@ const Section5 = () => {
     const handleUpdateLock = () => {
         const newLockState = !lock;
         setLock(newLockState);
-        const newState = {
-            id,
-            reviewState: newLockState
-        }
-        if(id) {
-            updateReviewWrapper(newState);
-        } else {
-            createReviewWrapper(newState);
-        }
+        updateReviewWrapper({ reviewState: newLockState });
     }
 
     return (

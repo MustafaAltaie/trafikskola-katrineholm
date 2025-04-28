@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const newState = new mongoose.Schema({
-    reviewState: { type: Boolean }
+    reviewState: { type: Boolean, default: false }
 });
 
 const ReviewState = mongoose.model('ReviewStatus', newState);

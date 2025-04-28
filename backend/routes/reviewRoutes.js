@@ -34,22 +34,13 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-router.post('/state', async (req, res) => {
-    try {
-        const newState = new ReviewState(req.body);
-        const savedState = await newState.save();
-        res.status(201).json(savedState);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
-
 router.get('/state', async (req, res) => {
     try {
         const reviewState = await ReviewState.findOne();
         console.log('Found reviewState:', reviewState);
         if (!reviewState) {
-            return res.status(404).json({ message: 'No review state found' });
+            const reviewState = ReviewState({ reviewState: false });
+            await reviewState.save();
         }
         res.json(reviewState);
     } catch (err) {
@@ -57,10 +48,9 @@ router.get('/state', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
-        const { id } = req.params;
-        const updatedState = await ReviewState.findByIdAndUpdate(id, req.body, { new: true, upsert: true });
+        const updatedState = await ReviewState.findOneAndUpdate({}, { $set: req.body }, { new: true, upsert: true });
         res.status(200).json(updatedState);
     } catch (err) {
         res.status(500).json(err);

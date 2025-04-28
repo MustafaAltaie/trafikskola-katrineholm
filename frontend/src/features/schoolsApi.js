@@ -42,11 +42,6 @@ export const schoolsApi = createApi({
             query: (id) => ({ url: `review/${id}`, method: 'DELETE' }),
             invalidatesTags: ['review']
         }),
-        // create review wrapper lock
-        createReviewWrapper: builder.mutation({
-            query: (data) => ({ url: 'review/state', method: 'POST', body: data }),
-            invalidatesTags: ['review']
-        }),
         // read review wrapper lock
         readReviewWrapper: builder.query({
             query: () => 'review/state',
@@ -54,7 +49,7 @@ export const schoolsApi = createApi({
         }),
         // update review wrapper lock
         updateReviewWrapper: builder.mutation({
-            query: ({ id, ...data }) => ({ url: `review/${id}`, method: 'PUT', body: data }),
+            query: (data) => ({ url: `review`, method: 'PUT', body: data }),
             invalidatesTags: ['review']
         }),
         // send message
@@ -75,7 +70,6 @@ export const {
     useDeleteEducationMutation,
     useCreateReviewMutation,
     useReadReviewQuery,
-    useCreateReviewWrapperMutation,
     useReadReviewWrapperQuery,
     useUpdateReviewWrapperMutation,
     useDeleteReviewMutation,
