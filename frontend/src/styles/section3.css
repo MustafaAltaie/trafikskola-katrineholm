@@ -45,7 +45,7 @@
 .sec3Card > i {
     position: absolute;
     transform: translate(-30%, 30%) rotate(-45deg);
-    background: rgb(199, 148, 18);
+    background: rgb(56, 176, 66);
     padding: 3px 20px 7px 20px;
     color: #fff;
     clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);

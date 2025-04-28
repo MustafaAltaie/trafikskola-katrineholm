@@ -19,13 +19,10 @@
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
-    gap: 10px;
-    width: 100%;
-    height: 300px;
 }
 .sec1DetailsWrapper > h1 {
-    background: #ffffff55;
-    color: var(--textLight);
+    background: #444;
+    color: #0af;
     padding: 10px;
     backdrop-filter: blur(3px);
 }
@@ -34,8 +31,8 @@
     text-shadow: 0 0 10px #000000;
 }
 .sec1DetailsWrapper > p {
-    background: #ffffff55;
-    color: var(--textDark);
+    background: #eee;
+    color: var(--textBright);
     font-family: var(--formalFont);
     padding: 10px;
     backdrop-filter: blur(3px);
