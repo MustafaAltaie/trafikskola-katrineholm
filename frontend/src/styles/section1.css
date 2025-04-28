@@ -1,7 +1,7 @@
 .section1 {
     padding-top: 50px;
-    height: 500px;
-    margin-bottom: 50px;
+    height: 700px;
+    margin-bottom: 20px;
 }
 .Sec1ImageWrapper {
     position: fixed;
@@ -19,9 +19,10 @@
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
+    gap: 20px;
 }
 .sec1DetailsWrapper > h1 {
-    background: #444;
+    background: #000000ae;
     color: #0af;
     padding: 10px;
     backdrop-filter: blur(3px);
@@ -31,7 +32,7 @@
     text-shadow: 0 0 10px #000000;
 }
 .sec1DetailsWrapper > p {
-    background: #eee;
+    background: #eeeeeeb1;
     color: var(--textBright);
     font-family: var(--formalFont);
     padding: 10px;

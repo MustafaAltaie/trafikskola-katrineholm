@@ -1,6 +1,6 @@
 .section2 {
-    background: radial-gradient(circle at 80% 50%, rgba(255, 0, 0, 0.221), transparent 40%),
-                radial-gradient(circle at 20% 40%, rgba(151, 103, 255, 0.337), transparent 45%);
+    background: radial-gradient(circle at 80% 50%, rgba(206, 149, 65, 0.221), transparent 60%),
+                radial-gradient(circle at 20% 40%, #2a81d356, transparent 60%);
     background-color: var(--bgLight);
     border-bottom: var(--thinDarkBorder);
 }
@@ -8,9 +8,14 @@
     margin-right: 10px;
 }
 .section2 > h1 {
-    padding: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #5f94d8;
+    color: #fff;
 }
 .sec2Contact {
+    display: flex;
+    justify-content: space-between;
     border-top: var(--thinDarkBorder);
     border-bottom: var(--thinDarkBorder);
     padding: 20px;

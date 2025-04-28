@@ -52,6 +52,7 @@ header > nav > ul > li {
     width: 100%;
     text-align: center;
     border-top: var(--thickDarkBorder);
+    font-size: 20px;
 }
 header > nav > ul > li > a {
     color: var(--textLight);

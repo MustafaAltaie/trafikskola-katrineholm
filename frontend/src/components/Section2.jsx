@@ -4,14 +4,14 @@ const Section2 = () => {
     return (
         <section className="section2">
             <h1>Ta ditt körkort med självförtroende!</h1>
-            <div className='sec2Contact flexColumn'>
-                <p><i className="fa-solid fa-phone"></i>0737025139</p>
-                <p><i className="fa-solid fa-envelope"></i>mohanad@gmail.com</p>
+            <div className='sec2Contact'>
+                <h3><i className="fa-solid fa-phone"></i>0737025139</h3>
+                <h3><i className="fa-solid fa-envelope"></i>mohanad@gmail.com</h3>
             </div>
             <div className='sec2Ads'>
-                <p><i className="fa-solid fa-arrow-right"></i>Körkortstillstånd</p>
-                <p><i className="fa-solid fa-arrow-right"></i>Handledarskap</p>
-                <p><i className="fa-solid fa-arrow-right"></i>Plugga online</p>
+                <h3><i className="fa-solid fa-arrow-right"></i>Körkortstillstånd</h3>
+                <h3><i className="fa-solid fa-arrow-right"></i>Handledarskap</h3>
+                <h3><i className="fa-solid fa-arrow-right"></i>Plugga online</h3>
             </div>
         </section>
     )
