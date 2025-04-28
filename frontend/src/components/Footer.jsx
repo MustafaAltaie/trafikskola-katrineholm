@@ -37,8 +37,8 @@ const Footer = () => {
                 </div>
 
                 <div className="footerLegal">
-                    <p>© 2025 Trafikskola Mohanad-Nasri/Katrineholm-Trafikskola. Alla rättigheter förbehållna.</p>
-                    <p><a href="/integritetspolicy">Integritetspolicy</a> | <a href="/allmanna-villkor">Allmänna villkor</a></p>
+                    <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
+                    <p><a href="/integritetspolicy"><span>Integritetspolicy</span></a> | <a href="/allmanna-villkor"><span>Allmänna villkor</span></a></p>
                 </div>
 
                 <div className="footerDeveloper">
