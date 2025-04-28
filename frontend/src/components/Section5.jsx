@@ -24,9 +24,10 @@ const Section5 = () => {
 
     useEffect(() => {
         if (form) {
-            if(formRef.current)
-            formRef.current.style.display = 'flex';
-            formRef.current.scrollIntoView({ behavior: 'smooth' });
+            if (formRef.current) {
+                formRef.current.style.display = 'flex';
+                formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             clearFields();
             setTimeout(() => {
                 if(formRef.current) {
@@ -123,7 +124,7 @@ const Section5 = () => {
                 <button className='glassMorphism' onClick={e => {handleCreateReview(); e.preventDefault()}}>Skicka</button>
             </form>
             {!form &&
-            <button className='glassMorphism' onClick={() => {setForm(true); window.scrollBy({ top: 500, behavior: 'smooth' })}}><h3>Dela gärna din upplevelse med oss!</h3></button>}
+            <button className='glassMorphism' onClick={() => setForm(true)}><h3>Dela gärna din upplevelse med oss!</h3></button>}
         </section>
     )}
 }
