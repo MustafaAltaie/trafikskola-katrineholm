@@ -6,9 +6,9 @@ const PricesPage = () => {
     return (
         <div className="pricesPageMainWrapper">
             <Header />
-            <section className="pricePageWrapper">
+            <section className="pricePageWrapper navPage">
                 <div>
-                    <div className="pricePageDetailsWrapper flexColumn">
+                    <div className="pricePageDetailsWrapper glassMorphism flexColumn">
                         <p>Körlektioner betalas kontant vid köptillfället eller i förskott via <span>bankgiro 135-5031</span> eller <span>Swish 123 354 20 65</span> till Katrineholm Trfaikskola
                         Vid betalning till Bankgiro eller Swish vänligen lämna namn och personnummer som meddelande.</p>
                         <div>

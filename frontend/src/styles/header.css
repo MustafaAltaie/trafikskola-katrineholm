@@ -41,9 +41,9 @@ header > nav > ul {
     align-items: center;
     list-style: none;
     width: 100%;
-    background: radial-gradient(circle at 60% 80%, rgba(255, 162, 0, 0.159), transparent 50%),
-                radial-gradient(circle at -20% 80%, rgba(179, 0, 255, 0.201), transparent 50%),
-                radial-gradient(circle at 40% 10%, rgba(0, 85, 255, 0.203), transparent 70%);
+    background: radial-gradient(circle at 60% 80%, rgba(181, 144, 81, 0.304), transparent 50%),
+                radial-gradient(circle at -20% 80%, rgba(0, 170, 255, 0.544), transparent 50%),
+                radial-gradient(circle at 40% 10%, rgba(3, 66, 255, 0.362), transparent 70%);
     background-color: var(--bgLight);
     backdrop-filter: blur(10px);
     border-bottom: var(--thickDarkBorder);

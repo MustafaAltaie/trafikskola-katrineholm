@@ -1,14 +1,19 @@
-.riskPageWrapper {
-    padding-top: 50px;
-}
 .riskPageWrapper > div {
     display: flex;
     flex-direction: column;
     padding: 30px;
+    margin-bottom: 10px;
     border-top: solid 0.5px #00000044;
+    border-bottom: solid 0.5px #00000044;
+    background-color: #ffffffbb;
+    backdrop-filter: blur(3px);
 }
 .riskPageWrapper > div:nth-child(1) {
     border-top: none;
+}
+.riskPageWrapper > div:nth-child(3) {
+    margin-bottom: 0;
+    border-bottom: none;
 }
 .risk1PageImagesWrapper, .risk2PageImagesWrapper {
     display: flex;

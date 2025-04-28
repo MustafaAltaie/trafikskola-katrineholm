@@ -1,3 +1,8 @@
-.supervisorPageWrapper {
-    padding-top: 50px;
+.supervisorPageWrapper > div {
+    gap: 10px;
+    padding: 30px;
+    backdrop-filter: blur(3px);
+}
+.supervisorPageWrapper > div > h1 {
+    font-family: var(--formalFont);
 }

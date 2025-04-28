@@ -1,10 +1,3 @@
-.pricePageWrapper {
-    padding-top: 50px;
-    background-image: url('https://www.freeiconspng.com/uploads/wave-lines-vector-png-photo-15.png');
-    background-attachment: fixed;
-    background-size: 100% 50%;
-    background-color: #eee;
-}
 .pricePageWrapper > div {
     background-color: #dddddd99;
     padding: 30px;
@@ -13,12 +6,12 @@
     font-family: var(--formalFont);
 }
 .pricePageWrapper > div > h1 {
-    margin: 15px 0 10px 0;
-    padding-top: 10px;
-    border-top: solid 1px #00000033;
+    margin: 10px 0;
 }
 .pricePageDetailsWrapper {
     gap: 30px;
+    padding: 20px;
+    backdrop-filter: blur(3px);
 }
 .pricePageDetailsWrapper > p {
     font-family: var(--formalFont);

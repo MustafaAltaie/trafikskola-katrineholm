@@ -6,7 +6,7 @@ const RiskPage = () => {
     return (
         <div className="riskPageMainWrapper">
             <Header />
-            <div className="riskPageWrapper">
+            <div className="riskPageWrapper navPage">
                 <div>
                     <h1>Riskutbildning 1 Eskilstuna</h1>
                     <div className="risk1PageImagesWrapper">
