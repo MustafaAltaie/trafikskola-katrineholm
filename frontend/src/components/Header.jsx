@@ -21,11 +21,16 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
             </div>
             <nav className={toggleBtn ? 'navOpened' : ''}>
                 <ul>
-                    <li><Link to={'/'}>Hem</Link></li>
-                    <li><Link to={'/priser'}>Priser</Link></li>
-                    <li><Link to={'/riskutbildning'}>Riskutbildning</Link></li>
-                    <li><Link to={'/handledarutbildning'}>Handledarutbildning</Link></li>
-                    <li><Link to={'/intensivkurs'}>Intensivkurs</Link></li>
+                    {location.pathname !== '/' &&
+                    <li><Link to={'/'}>Hem</Link></li>}
+                    {!location.pathname.includes('priser') &&
+                    <li><Link to={'/priser'}>Priser</Link></li>}
+                    {!location.pathname.includes('riskutbildning') &&
+                    <li><Link to={'/riskutbildning'}>Riskutbildning</Link></li>}
+                    {!location.pathname.includes('handledarutbildning') &&
+                    <li><Link to={'/handledarutbildning'}>Handledarutbildning</Link></li>}
+                    {!location.pathname.includes('intensivkurs') &&
+                    <li><Link to={'/intensivkurs'}>Intensivkurs</Link></li>}
                     {!location.pathname.includes('priser') &&
                     !location.pathname.includes('riskutbildning') &&
                     !location.pathname.includes('handledarutbildning') &&
@@ -36,7 +41,8 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
                             <li><a onClick={() => {scrollToSec4(); setToggleBtn(false)}}>Kontakta Oss</a></li>
                         </>
                     }
-                    <li><Link to={'/om-oss'}>Om Oss</Link></li>
+                    {!location.pathname.includes('om-oss') &&
+                    <li><Link to={'/om-oss'}>Om Oss</Link></li>}
                 </ul>
             </nav>
         </header>
