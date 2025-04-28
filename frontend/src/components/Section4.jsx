@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, forwardRef } from 'react';
 import '../styles/Section4.css';
 import { useSendMessageMutation } from '../features/schoolsApi';
 
-const Section4 = () => {
+const Section4 = forwardRef(( props, ref ) => {
     const [name, setName] = useState('');
     const [mobile, setMobile] = useState('');
     const [email, setEmail] = useState('');
@@ -48,7 +48,7 @@ const Section4 = () => {
     }
 
     return (
-        <section className='section4'>
+        <section className='section4' ref={ref}>
             <div className="sec4MainWrapper">
                 <h1>Kontakta oss</h1>
                 <div className='sec4Contact flexColumn'>
@@ -95,6 +95,6 @@ const Section4 = () => {
             </div>
         </section>
     )
-}
+})
 
 export default Section4;

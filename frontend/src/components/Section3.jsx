@@ -1,13 +1,14 @@
 import '../styles/section3.css';
 import { useReadEducationsQuery } from '../features/schoolsApi';
+import { forwardRef } from 'react';
 
-const Section3 = () => {
+const Section3 = forwardRef((props, ref) => {
     const { data: educations, isLoading } = useReadEducationsQuery();
 
     if(isLoading) return <p>Loading...</p>
 
     return (
-        <section className="section3">
+        <section className="section3" ref={ref}>
             <h1>Våra Utbildningar</h1>
             <div>
                 <div className="sec3CardWrapper">
@@ -33,6 +34,6 @@ const Section3 = () => {
             </div>
         </section>
     )
-}
+})
 
 export default Section3;

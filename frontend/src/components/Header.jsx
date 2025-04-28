@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import '../styles/header.css';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ scrollToSec3, scrollToSec4 }) => {
     const [toggleBtn, setToggleBtn] = useState(false);
+    const location = useLocation();
 
     return (
         <header>
@@ -20,13 +22,21 @@ const Header = () => {
             <nav className={toggleBtn ? 'navOpened' : ''}>
                 <ul>
                     <li><Link to={'/'}>Hem</Link></li>
-                    <li><Link to={'/booking'}>Boka - Avboka</Link></li>
-                    <li><Link to={'/prices'}>Priser</Link></li>
-                    <li><Link to={'/riskEducation'}>Riskutbildning</Link></li>
-                    <li><Link to={'/supervisorEducation'}>Handledarutbildning</Link></li>
-                    <li><Link to={'/intensivecourse'}>Intensivkurs</Link></li>
-                    <li><Link to={'/contact'}>Kontakta Oss</Link></li>
-                    <li><Link to={'/about'}>Om Oss</Link></li>
+                    <li><Link to={'/priser'}>Priser</Link></li>
+                    <li><Link to={'/riskutbildning'}>Riskutbildning</Link></li>
+                    <li><Link to={'/handledarutbildning'}>Handledarutbildning</Link></li>
+                    <li><Link to={'/intensivkurs'}>Intensivkurs</Link></li>
+                    {!location.pathname.includes('priser') &&
+                    !location.pathname.includes('riskutbildning') &&
+                    !location.pathname.includes('handledarutbildning') &&
+                    !location.pathname.includes('intensivkurs') &&
+                    !location.pathname.includes('om-oss') &&
+                        <>
+                            <li><a onClick={() => {scrollToSec3(); setToggleBtn(false)}}>Våra Utbildningar</a></li>
+                            <li><a onClick={() => {scrollToSec4(); setToggleBtn(false)}}>Kontakta Oss</a></li>
+                        </>
+                    }
+                    <li><Link to={'/om-oss'}>Om Oss</Link></li>
                 </ul>
             </nav>
         </header>
