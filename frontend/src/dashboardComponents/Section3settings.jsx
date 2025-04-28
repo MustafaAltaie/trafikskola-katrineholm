@@ -40,19 +40,21 @@ const Section3 = () => {
     }
 
     const handleCreateEducation = () => {
-        const newEducation = {
-            id: id || '',
-            title,
-            price: Number(price),
-            discount: Number(discount),
-            list
+        if(title && price) {
+           const newEducation = {
+                id: id || '',
+                title,
+                price: Number(price),
+                discount: Number(discount),
+                list
+            }
+            if(id) {
+                updateEducation(newEducation);
+            } else {
+                createEducation(newEducation);
+            }
+            clearFields(); 
         }
-        if(id) {
-            updateEducation(newEducation);
-        } else {
-            createEducation(newEducation);
-        }
-        clearFields();
     }
 
     const clearFields = () => {
