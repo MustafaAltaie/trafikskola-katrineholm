@@ -1,0 +1,89 @@
+.section4 {
+    background-image: url('https://cdn.pixabay.com/photo/2016/05/05/17/59/sports-car-1374425_1280.jpg');
+    background-size: 100% 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    color: #fff;
+}
+.sec4MainWrapper {
+    padding: 30px 50px;
+}
+.sec4Contact {
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: solid 0.7px #ffffff44;
+}
+.sec4Contact i {
+    margin-right: 10px;
+}
+.sec4MainWrapper > h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.sec4Form {
+    padding: 40px;
+    align-items: center;
+    gap: 10px;
+    border: solid 0.5px #ffffff77;
+    border-top: solid 0.7px #ffffffaa;
+    background: radial-gradient(circle at 50% 100%, rgba(154, 146, 129, 0.252), transparent 30%),
+                radial-gradient(circle at -10% -10%, rgba(128, 128, 128, 0.681), transparent 30%),
+                radial-gradient(circle at 100% 20%, rgba(59, 150, 255, 0.452), transparent 30%);
+    backdrop-filter: blur(7px);
+    background-color: #00000055;
+    border-radius: 20px;
+}
+.sec4Form > div {
+    width: 100%;
+}
+.sec4Form p {
+    font-size: 12px;
+}
+.sec4Form button, .sec4Form input, .sec4Form textarea {
+    width: 100%;
+    border-radius: 20px;
+    border: solid 0.5px #ffffffaa;
+    padding: 5px 20px;
+    background: #ffffff22;
+    backdrop-filter: blur(3px);
+    color: #fff;
+}
+.sec4Form textarea {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.sec4SocialMediaWrapper {
+    padding: 30px 0 10px 0;
+}
+.sec4SocialMediaWrapper > h1 {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: solid 0.7px #ffffff44;
+}
+.ec4SocialMedia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.ec4SocialMedia > div {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: solid 0.7px #ffffff33;
+    background: radial-gradient(circle at 50% 110%, rgba(255, 157, 0, 0.534), transparent 50%),
+                radial-gradient(circle at 0 0, rgba(131, 59, 255, 0.823), transparent 30%),
+                radial-gradient(circle at 100% 20%, rgba(59, 150, 255, 0.542), transparent 30%);
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+}
+.ec4SocialMedia > div > i {
+    font-size: 22px;
+    color: #ffffffbb;
+}

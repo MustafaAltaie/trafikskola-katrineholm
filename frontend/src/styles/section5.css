@@ -1,0 +1,111 @@
+.section5 {
+    background: radial-gradient(circle at 50% 70%, rgba(255, 157, 0, 0.263), transparent 40%),
+                radial-gradient(circle at 0 0, rgba(173, 59, 255, 0.305), transparent 40%),
+                radial-gradient(circle at 100% 40%, rgba(59, 150, 255, 0.423), transparent 40%);
+    background-color: #eee;
+    gap: 30px;
+    padding: 20px;
+}
+.glassMorphism {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff77;
+    border: solid 0.5px #ffffffaa;
+    border-top: solid 1px #ffffff;
+}
+.section5 > h1 {
+    text-align: center;
+}
+.sec5HeaderText {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 0.5px #00000055;
+    border-bottom: solid 0.5px #00000055;
+    padding: 20px;
+}
+.yellowStars {
+    text-shadow: 0 0 1px #000, 0 0 10px #ffffff;
+    filter: brightness(110%);
+}
+.section5 > form {
+    position: relative;
+    gap: 10px;
+    border: solid 0.5px #00000055;
+    padding: 20px;
+    transition: opacity 0.7s, transform 0.7s;
+}
+.sec5FormCloseButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+.section5 > form > div > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.section5 > form > div > div > p {
+    width: 80%;
+}
+.section5 > form > div > div > input {
+    width: 20%;
+    text-align: center;
+}
+.section5 > form input, .section5 > form textarea, .section5 > form > button {
+    width: 100%;
+    border: solid 0.5px #00000033;
+}
+.sec5ColumnsWrapper {
+    max-height: 400px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.sec5Column {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sec5Comment {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-image: radial-gradient(circle at 0 50%, #a7a7a73b, transparent 30%),
+                      radial-gradient(circle at 90% 50%, #7a7a7a17, transparent 50%);
+    border: solid 0.5px #ffffff;
+    border-top: solid 1px #ffffff;
+    border-radius: 10px;
+}
+.sec5CommentPart1 {
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #555555;
+    color: #fff;
+    border-radius: 50%;
+}
+.sec5CommentPart2 {
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+}
+.sec5CommentPart2 > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0066ff;
+}
+.hidden5Form {
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+}
+.showsed5Form {
+    transform: translateX(0);
+    opacity: 1;
+}

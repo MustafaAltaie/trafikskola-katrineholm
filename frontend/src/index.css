@@ -1,0 +1,58 @@
+:root {
+    /* Light Mode */
+    --bgLight: #ffffff;
+    --textLight: #111111;
+
+    /* Dark Mode */
+    --bgDark: #111111;
+    --textDark: #ffffff;
+
+    /* Other Colors */
+    --black0: #000;
+    --black1: #111;
+    --greyDark: #444;
+    --greyMiddle: #666;
+    --greyLight: #888;
+    --bgGreyLight: #eee;
+    --transBack: #ffffff99;
+
+    /* BORDERS */
+    --thinDarkBorder: solid 0.5px #00000055;
+    --thinBrightBorder: solid 0.5px #ffffff33;
+    --thickDarkBorder: solid 1px #00000033;
+
+    /* FONT FAMILIES */
+    --thinBendFont: 'Thasadith', sans-serif;
+    --thinStraighFont: "Wire One", sans-serif;
+    --scriptFont: 'Parisienne', cursive;
+    --formalFont: "Dosis", sans-serif;
+    
+}
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: var(--thinBendFont);
+    text-decoration: none;
+    font-weight: normal;
+}
+main > section {
+    z-index: 100;
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    cursor: pointer;
+}
+button:hover {
+    filter: brightness(80%);
+}
+textarea {
+    resize: none;
+}

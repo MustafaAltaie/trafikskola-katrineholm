@@ -1,0 +1,65 @@
+header {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    color: var(--textDark);
+}
+header > div{
+    background-color: var(--bgDark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.navToggleButton {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+    height: 15px;
+}
+.navToggleButton > div {
+    width: 100%;
+    height: 3px;
+    background: var(--textDark);
+    transition: 0.2s;
+}
+header > nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
+}
+.navOpened {
+    max-height: 500px;
+}
+header > nav > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    background: radial-gradient(circle at 60% 80%, rgba(255, 162, 0, 0.216), transparent 50%),
+                radial-gradient(circle at -20% 80%, rgba(179, 0, 255, 0.201), transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 85, 255, 0.203), transparent 50%);
+    background-color: var(--bgLight);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--thickDarkBorder);
+}
+header > nav > ul > li {
+    width: 100%;
+    text-align: center;
+    border-top: var(--thickDarkBorder);
+}
+header > nav > ul > li > a {
+    color: var(--textLight);
+    font-family: var(--formalFont);
+    display: block;
+    width: 100%;
+    padding: 15px;
+}
+header > nav > ul > li:nth-child(1) {
+    border-top: none;
+}
