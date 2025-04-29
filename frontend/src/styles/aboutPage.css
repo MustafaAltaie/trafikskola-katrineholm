@@ -1,3 +1,31 @@
-.aboutPageWrapper {
-    padding-top: 50px;
+.aboutPageWrapper > div {
+    padding: 30px;
+    background: #ffffffcc;
+}
+.aboutPageWrapper h1 {
+    font-family: var(--formalFont);
+}
+.aboutPageWrapper span {
+    font-weight: bold;
+}
+.aboutPageImageWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.aboutPageImageWrapper > div {
+    height: 200px;
+}
+.aboutPageImageWrapper > div:nth-child(4n + 1),
+.aboutPageImageWrapper > div:nth-child(4n + 4) {
+    width: calc(60% - 10px);
+}
+.aboutPageImageWrapper > div:nth-child(4n + 2),
+.aboutPageImageWrapper > div:nth-child(4n + 3) {
+    width: calc(40% - 10px);
+}
+.aboutPageImageWrapper > div > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

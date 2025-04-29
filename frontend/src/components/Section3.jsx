@@ -1,6 +1,7 @@
 import '../styles/section3.css';
 import { useReadEducationsQuery } from '../features/schoolsApi';
 import { forwardRef } from 'react';
+import Section3Card from './Section3Card';
 
 const Section3 = forwardRef((props, ref) => {
     const { data: educations, isLoading } = useReadEducationsQuery();
@@ -14,21 +15,7 @@ const Section3 = forwardRef((props, ref) => {
                 <div className="sec3CardWrapper">
                     {/* Card */}
                     {educations?.map(education => (
-                    <div key={education._id} className="sec3Card flexColumn">
-                            {education.discount > 0 &&
-                            <i>Spara {education.discount}:-</i>}
-                            <h3>{education.title}</h3>
-                            <div className='sec3CardInnerWrapper flexColumn'>
-                                <div className='flexColumn'>
-                                    <h1>{education.price}:-</h1>
-                                    {education.discount > 0 &&
-                                    <p>Du sparar {education.discount}:-</p>}
-                                </div>
-                                <ul className='flexColumn'>
-                                    {education.list?.map(option => <li key={option}>- {option}</li>)}
-                                </ul>
-                            </div>
-                        </div>
+                        <Section3Card key={education._id} education={education} />
                     ))}
                 </div>
             </div>

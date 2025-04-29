@@ -15,6 +15,7 @@
     --greyLight: #888;
     --bgGreyLight: #eee;
     --transBack: #ffffff99;
+    --bgBToP: linear-gradient(to right, #5558ec, #cd78ff);
 
     /* BORDERS */
     --thinDarkBorder: solid 0.5px #00000055;
