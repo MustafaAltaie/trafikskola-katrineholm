@@ -28,6 +28,7 @@ const AboutPage = () => {
                     <p>Du skall vara 16 år innan du får börja övningsköra. För bästa möjliga resultat rekommenderar vi att du börjar tidigt.</p>
                     <br />
                     <p>Kombinera gärna körningen på skolan med mängdträning hemma med din handledare. Givetvis har vi även intensivkurser för den som vill bli klar på kortare tid.</p>
+                    <br />
                     <div className="aboutPageImageWrapper">
                         <div><img src="https://cdn.pixabay.com/photo/2022/07/04/10/46/vintage-car-7300881_1280.jpg" alt="image" /></div>
                         <div><img src="https://cdn.pixabay.com/photo/2020/07/15/13/12/lotus-5407670_1280.jpg" alt="image" /></div>
