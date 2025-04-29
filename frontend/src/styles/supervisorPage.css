@@ -3,6 +3,7 @@
     padding: 30px;
     backdrop-filter: blur(3px);
 }
-.supervisorPageWrapper > div > h1 {
+.supervisorPageWrapper > div > h1, .supervisorPageWrapper > div > h2 {
     font-family: var(--formalFont);
+    overflow: hidden;
 }

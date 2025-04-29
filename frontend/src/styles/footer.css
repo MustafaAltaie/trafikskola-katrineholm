@@ -38,6 +38,11 @@ footer {
     align-items: center;
     background-color: #a05d00;
     border-radius: 50%;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.footerTop > div > p:hover {
+    transform: scale(1.1);
 }
 .footerMiddle {
     display: flex;
@@ -60,9 +65,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #ffffff33;
+    border: solid 0.7px #ffffff77;
     border-radius: 50%;
     background-image: radial-gradient(circle at 0 0, #ffffff, transparent 30%);
+    cursor: pointer;
+    transition: 0.1s;
+}
+.footerSocial > div > i:hover {
+    transform: scale(1.1);
 }
 .footerContact {
     gap: 10px;

@@ -13,7 +13,7 @@ const PricesPage = () => {
             <Header />
             <section className="pricePageWrapper navPage">
                 <div>
-                    <div className="pricePageDetailsWrapper glassMorphism flexColumn">
+                    <div className="pricePageDetailsWrapper flexColumn">
                         <p>Körlektioner betalas kontant vid köptillfället eller i förskott via <span>bankgiro 135-5031</span> eller <span>Swish 123 354 20 65</span> till Katrineholm Trfaikskola
                         Vid betalning till Bankgiro eller Swish vänligen lämna namn och personnummer som meddelande.</p>
                         <div>
@@ -23,7 +23,9 @@ const PricesPage = () => {
                         </div>
                         <p>I Katrineholm Trfaikskola kan vi hjälpa er att ansöka körkortstillstånd.</p>
                     </div>
+                    <br />
                     <h1>Prislistan</h1>
+                    <br />
                     <div className='pricePageList flexColumn'>
                         <div className='pricePageCard glassMorphism'>
                             <div className='flexColumn'>
@@ -40,7 +42,7 @@ const PricesPage = () => {
                                 <p>Teorihjälp inskrivningsavgift 300kr, Riskutbildning 1, 900 kr, 6 st 60 minuters körlektioner 5970 kr, Rabatt 240 kr</p>
                             </div>
                             <div>
-                                <h1>6 930:-</h1>
+                                <h1>6930:-</h1>
                             </div>
                         </div>
                         <div className='pricePageCard glassMorphism'>
@@ -62,6 +64,7 @@ const PricesPage = () => {
                             </div>
                         </div>
                     </div>
+                    <br />
                     <div>
                         <b>Observera att Trafikverkets kostnad tillkommer</b>
                         <p>– Kunskapsprov 420 kr</p>

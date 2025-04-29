@@ -1,17 +1,12 @@
 .pricePageWrapper > div {
-    background-color: #dddddd99;
+    background-color: #eeeeeecc;
     padding: 30px;
 }
 .pricePageWrapper h1 {
     font-family: var(--formalFont);
 }
-.pricePageWrapper > div > h1 {
-    margin: 10px 0;
-}
 .pricePageDetailsWrapper {
     gap: 30px;
-    padding: 20px;
-    backdrop-filter: blur(3px);
 }
 .pricePageDetailsWrapper > p {
     font-family: var(--formalFont);
@@ -23,14 +18,13 @@
 
 .pricePageList {
     gap: 30px;
-    margin-bottom: 30px;
 }
 .pricePageCard {
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
     gap: 20px;
     border-top: solid 1px #fff;
-    backdrop-filter: blur(2px);
     box-shadow: 0 1px 5px #00000055;
     padding: 20px;
 }
