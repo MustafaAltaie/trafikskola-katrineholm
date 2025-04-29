@@ -1,4 +1,5 @@
 import '../styles/footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -23,7 +24,7 @@ const Footer = () => {
                     </div>
                     <div className="footerAbout">
                         <p><span>Katrineholm-Eskilstuna Trafikskola</span> ligger i nära Eskilstuna centrum 9 minuter buss linje 1 vid Busshållplats Munktellsgan och nära Trafikverket förarprov 10 minuter med foten.Vår målsättning är att erbjuda en lugn och trivsam studiemiljö med modern utrustning.</p>
-                        <p><span style={{ color: '#57d', fontWeight: 'bold' }}>Läs mer om oss ...</span></p>
+                        <Link to='/om-oss'><p><span style={{ color: '#57d', fontWeight: 'bold' }}>Läs mer om oss ...</span></p></Link>
                     </div>
                 </div>
 
@@ -33,6 +34,18 @@ const Footer = () => {
                         <i className="fa-brands fa-instagram"></i>
                         <i className="fa-brands fa-facebook-f"></i>
                         <i className="fa-brands fa-facebook-messenger"></i>
+                    </div>
+                </div>
+
+                <div className='footerContact flexColumn'>
+                    <p>Kontakta oss eller Boka Direkt Här:</p>
+                    <div className='flexColumn'>
+                        <div>
+                            <input type="text" placeholder='Namn' />
+                            <input type="text" placeholder='Nummer eller E-post' />
+                        </div>
+                        <textarea placeholder='Meddelande'></textarea>
+                        <button>Skicka</button>
                     </div>
                 </div>
 

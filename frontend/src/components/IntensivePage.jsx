@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import Footer from "./Footer";
 import Header from "./Header";
 import '../styles/intensivePage.css';
 import Section3Card from './Section3Card';
 
 const IntensivePage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     const education = {
         _id: 12434,
         title: 'TITLE IS HERE',

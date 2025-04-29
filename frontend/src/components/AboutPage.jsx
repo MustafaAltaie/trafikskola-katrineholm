@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import '../styles/aboutPage.css';
 
 const AboutPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     return (
         <div>
             <Header />

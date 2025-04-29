@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import Footer from "./Footer";
 import Header from "./Header";
 import '../styles/riskPage.css';
 
 const RiskPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     return (
         <div className="riskPageMainWrapper">
             <Header />

@@ -1,9 +1,13 @@
-import React from 'react'
+import { useEffect } from 'react';
 import Header from './Header'
 import Footer from './Footer'
 import '../styles/supervisorPage.css';
 
 const SupervisorPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     return (
         <div>
             <Header />

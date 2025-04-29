@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import '../styles/PricesPage.css';
 import Footer from './Footer';
 import Header from './Header';
 
 const PricesPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     return (
         <div className="pricesPageMainWrapper">
             <Header />
