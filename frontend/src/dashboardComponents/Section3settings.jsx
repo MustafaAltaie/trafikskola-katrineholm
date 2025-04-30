@@ -19,7 +19,7 @@ const Section3 = () => {
 
     useEffect(() => {
         if(form && formRef.current) {
-            formRef.current.scrollIntoView({ behavior: 'smooth' });
+            formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }, [form]);
 
