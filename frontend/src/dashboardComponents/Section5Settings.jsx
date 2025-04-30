@@ -108,20 +108,20 @@ const Section5 = () => {
                 <h3 className='sec5FormCloseButton' onClick={() => setForm(false)}>X</h3>
                 <div>
                     <p>Ditt namn</p>
-                    <input type="text" className='glassMorphism' value={name} onChange={e => setName(e.target.value)} />
+                    <input type="text" className='glassMorphism' title='Namn' placeholder='Namn' value={name} onChange={e => setName(e.target.value)} />
                 </div>
                 <div>
                     <p>Ditt ålder</p>
-                    <input type="number" className='glassMorphism' value={age} onChange={e => setAge(e.target.value)} />
+                    <input type="number" className='glassMorphism' title='Ålder' placeholder='Ålder' value={age} onChange={e => setAge(e.target.value)} />
                 </div>
                 <div>
                     <p>Ditt meddelande</p>
-                    <textarea className='glassMorphism' value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                    <textarea className='glassMorphism' value={message} title='Meddelande' placeholder='Sms' onChange={e => setMessage(e.target.value)}></textarea>
                 </div>
                 <div>
                     <div>
                         <p>Hur många stjärnor vill du ge oss ?</p>
-                        <input type="number" min='1' max='5' className='glassMorphism' placeholder='1 - 5' value={rating} onChange={e => setRating(e.target.value)} />
+                        <input type="number" min='1' max='5' className='glassMorphism' title='Omdöme' placeholder='1 - 5' value={rating} onChange={e => setRating(e.target.value)} />
                     </div>
                 </div>
                 <button className='glassMorphism' onClick={e => {handleCreateReview(); e.preventDefault()}}>Skicka</button>

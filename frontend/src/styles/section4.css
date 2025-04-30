@@ -33,6 +33,7 @@
                 radial-gradient(circle at -10% -10%, rgba(128, 128, 128, 0.681), transparent 30%),
                 radial-gradient(circle at 100% 20%, rgba(59, 150, 255, 0.452), transparent 30%);
     backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
     background-color: #00000055;
     border-radius: 20px;
 }
@@ -49,6 +50,7 @@
     padding: 5px 20px;
     background: #ffffff22;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     color: #fff;
 }
 .sec4Form textarea {
@@ -81,6 +83,7 @@
                 radial-gradient(circle at 0 0, rgba(131, 59, 255, 0.823), transparent 30%),
                 radial-gradient(circle at 100% 20%, rgba(59, 150, 255, 0.542), transparent 30%);
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     cursor: pointer;
 }
 .ec4SocialMedia > div > i {

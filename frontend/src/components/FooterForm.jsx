@@ -40,10 +40,10 @@ const FooterForm = () => {
             <p>Kontakta oss eller Boka Direkt Här:</p>
             <div className='flexColumn'>
                 <div>
-                    <input type="text" className='styledInput1' placeholder='Ditt namn' name='name' value={newMessage.name} onChange={handlePreparemessage} />
-                    <input type="number" className='styledInput1' placeholder='Ditt nummer' name='mobile' value={newMessage.mobile} onChange={handlePreparemessage} />
+                    <input type="text" className='styledInput1' title='Namn' placeholder='Ditt namn' name='name' value={newMessage.name} onChange={handlePreparemessage} />
+                    <input type="number" className='styledInput1' title='Nummer' placeholder='Ditt nummer' name='mobile' value={newMessage.mobile} onChange={handlePreparemessage} />
                 </div>
-                <textarea className='styledInput1' placeholder='Meddelande' name='message' value={newMessage.message} onChange={handlePreparemessage}></textarea>
+                <textarea className='styledInput1' title='Meddelande' placeholder='Meddelande' name='message' value={newMessage.message} onChange={handlePreparemessage}></textarea>
                 <button className='styledInput1' onClick={handleSendMessage}>Skicka</button>
             </div>
         </div>

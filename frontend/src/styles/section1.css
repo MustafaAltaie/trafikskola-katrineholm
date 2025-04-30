@@ -26,6 +26,7 @@
     color: #0af;
     padding: 10px;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 .sec1DetailsWrapper > h1 > span {
     color: var(--textDark);
@@ -37,4 +38,5 @@
     font-family: var(--formalFont);
     padding: 10px;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
