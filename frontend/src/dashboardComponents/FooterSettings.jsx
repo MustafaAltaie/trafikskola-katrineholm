@@ -96,7 +96,7 @@ const Footer = () => {
                 <div className="footerTop flexColumn">
                     {isLoading && <p>Loading...</p>}
                     <div>
-                        <h1 className='footerSettingsButton' onClick={() => setTopMenu(!topMenu)}>🖋️</h1>
+                        <h2 className='footerSettingsButton' onClick={() => setTopMenu(!topMenu)}>🖋️</h2>
                         <p style={{  pointerEvents: footerTop.mobile ? 'all' : 'none' }}><a href={footerTop.mobile ? `tel:${footerTop.mobile}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-solid fa-phone-volume"></i></a></p>
                         <p style={{  pointerEvents: footerTop.messenger ? 'all' : 'none' }}><a href={footerTop.messenger ? `https://m.me/${footerTop.messenger}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-facebook-messenger"></i></a></p>
                         <p style={{  pointerEvents: footerTop.location ? 'all' : 'none' }}><a href={footerTop.location ? `https://www.google.com/maps?q=${footerTop.location}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-solid fa-location-dot"></i></a></p>
@@ -127,7 +127,7 @@ const Footer = () => {
 
                 <div className="footerSocial flexColumn">
                     <p>Följ oss på:</p>
-                    <h1 className='footerSettingsButton' onClick={() => setMiddleMenu(!middleMenu)}>🖋️</h1>
+                    <h2 className='footerSettingsButton' onClick={() => setMiddleMenu(!middleMenu)}>🖋️</h2>
                     <div>
                         {isMiddleLoading && <p>Loading...</p>}
                         <p style={{ pointerEvents: middleLinks?.link1 ? 'all' : 'none' }}><a href={middleLinks?.link1 ? `https://www.instagram.com/${middleLinks?.link1}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-instagram"></i></a></p>
