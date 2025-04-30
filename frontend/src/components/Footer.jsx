@@ -1,15 +1,21 @@
 import '../styles/footer.css';
 import { Link } from 'react-router-dom';
+import FooterForm from './FooterForm';
+import { useReadFooterTopLinksQuery, useReadFooterMiddleLinksQuery } from '../features/schoolsApi';
 
 const Footer = () => {
+    const { data: topLinks, isLoading } = useReadFooterTopLinksQuery();
+    const { data: middleLinks, isMiddleLoading } = useReadFooterMiddleLinksQuery();
+
     return (
         <footer>
             <div className="footerMainWrapper flexColumn">
                 <div className="footerTop flexColumn">
+                    {isLoading && <p>Loading...</p>}
                     <div>
-                        <p><i className="fa-solid fa-phone-volume"></i></p>
-                        <p><i className="fa-brands fa-facebook-messenger"></i></p>
-                        <p><i className="fa-solid fa-location-dot"></i></p>
+                        <p style={{  pointerEvents: topLinks?.mobile ? 'all' : 'none' }}><a href={topLinks?.mobile ? `tel:${topLinks?.mobile}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-solid fa-phone-volume"></i></a></p>
+                        <p style={{  pointerEvents: topLinks?.messenger ? 'all' : 'none' }}><a href={topLinks?.messenger ? `https://m.me/${topLinks?.messenger}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-facebook-messenger"></i></a></p>
+                        <p style={{  pointerEvents: topLinks?.location ? 'all' : 'none' }}><a href={topLinks?.location ? `https://www.google.com/maps?q=${topLinks?.location}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-solid fa-location-dot"></i></a></p>
                     </div>
                     <p>Hitta oss snabbt</p>
                 </div>
@@ -31,23 +37,14 @@ const Footer = () => {
                 <div className="footerSocial flexColumn">
                     <p>Följ oss på:</p>
                     <div>
-                        <i className="fa-brands fa-instagram"></i>
-                        <i className="fa-brands fa-facebook-f"></i>
-                        <i className="fa-brands fa-facebook-messenger"></i>
+                        {isMiddleLoading && <p>Loading...</p>}
+                        <p style={{ pointerEvents: middleLinks?.link1 ? 'all' : 'none' }}><a href={middleLinks?.link1 ? `https://www.instagram.com/${middleLinks?.link1}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-instagram"></i></a></p>
+                        <p style={{ pointerEvents: middleLinks?.link2 ? 'all' : 'none' }}><a href={middleLinks?.link2 ? `https://www.facebook.com/${middleLinks?.link2}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-facebook-f"></i></a></p>
+                        <p style={{ pointerEvents: middleLinks?.link3 ? 'all' : 'none' }}><a href={middleLinks?.link3 ? `` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-facebook-messenger"></i></a></p>
                     </div>
                 </div>
 
-                <div className='footerContact flexColumn'>
-                    <p>Kontakta oss eller Boka Direkt Här:</p>
-                    <div className='flexColumn'>
-                        <div>
-                            <input type="text" placeholder='Namn' />
-                            <input type="text" placeholder='Nummer eller E-post' />
-                        </div>
-                        <textarea placeholder='Meddelande'></textarea>
-                        <button>Skicka</button>
-                    </div>
-                </div>
+                <FooterForm />
 
                 <div className="footerLegal">
                     <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>

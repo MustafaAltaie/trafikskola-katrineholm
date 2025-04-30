@@ -22,6 +22,7 @@ footer {
     border-bottom: solid 0.5px #ffffff55;
 }
 .footerTop {
+    position: relative;
     align-items: center;
     gap: 10px;
 }
@@ -52,6 +53,7 @@ footer {
     margin-right: 10px;
 }
 .footerSocial {
+    position: relative;
     gap: 10px;
     align-items: center;
 }
@@ -59,13 +61,13 @@ footer {
     display: flex;
     gap: 20px;
 }
-.footerSocial > div > i {
+.footerSocial > div > p {
     width: 35px;
     height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 0.7px #ffffff77;
+    border: solid 0.7px #ffffff33;
     border-radius: 50%;
     background-image: radial-gradient(circle at 0 0, #ffffff, transparent 30%);
     cursor: pointer;
@@ -84,13 +86,13 @@ footer {
     display: flex;
     gap: 10px;
 }
-.footerContact input, .footerContact textarea, .footerContact button {
+.styledInput1 {
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     width: 100%;
 }
-.footerContact button {
+button.styledInput1 {
     background: #a05d00;
     color: white;
 }
@@ -104,4 +106,26 @@ footer {
     text-align: center;
     color: #ffffff99;
     padding: 10px 0 5px 0;
+}
+
+/* Footer Settings */
+.footerSettingsButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+.footerTopSettings, .footerMiddleSettings {
+    margin-top: -3px;
+    gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+}
+.footerTopSettingsOn, .footerMiddleSettingsOn {
+    max-height: 500px;
+}
+.footerTopSettingsOff, .footerMiddleSettingsOff {
+    max-height: 0;
 }

@@ -37,7 +37,6 @@ router.delete('/:id', async (req, res) => {
 router.get('/state', async (req, res) => {
     try {
         const reviewState = await ReviewState.findOne();
-        console.log('Found reviewState:', reviewState);
         if (!reviewState) {
             const reviewState = ReviewState({ reviewState: false });
             await reviewState.save();
@@ -50,10 +49,11 @@ router.get('/state', async (req, res) => {
 
 router.put('/', async (req, res) => {
     try {
-        const updatedState = await ReviewState.findOneAndUpdate({}, { $set: req.body }, { new: true, upsert: true });
+        const updatedState = await ReviewState.findByIdAndUpdate('singleton_review_state', { _id: 'singleton_review_state', ...req.body }, { new: true, upsert: true });
         res.status(200).json(updatedState);
     } catch (err) {
-        res.status(500).json(err);
+        console.error(err);
+        res.status(500).json({ message: 'Error updating review state' });
     }
 });
 

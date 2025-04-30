@@ -5,6 +5,8 @@ import connectDB from './config/db.js';
 import educationRoutes from './routes/educationRoutes.js';
 import reviewRouter from './routes/reviewRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
+import footerTopRoutes from './routes/footerTopRoutes.js';
+import FooterMiddleRoutes from './routes/footerMiddleRoutes.js';
 
 const app = express();
 
@@ -16,6 +18,8 @@ connectDB();
 app.use('/api/education', educationRoutes);
 app.use('/api/review', reviewRouter);
 app.use('/api/message', messageRoutes);
+app.use('/api/footerTop', footerTopRoutes);
+app.use('/api/footerMiddle', FooterMiddleRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

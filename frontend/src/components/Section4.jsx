@@ -30,13 +30,13 @@ const Section4 = forwardRef(( props, ref ) => {
             mobile: mobile.trim() ? Number(mobile) : null,
             email,
             message,
-        };
+        }
 
         sendMessage(newMessage);
 
         clearFields();
 
-        alert('Your message has been sent successfully!');
+        alert('Tack för att du kontaktade oss, vi hör av oss så snart som möjligt.');
     }
 
     const clearFields = () => {

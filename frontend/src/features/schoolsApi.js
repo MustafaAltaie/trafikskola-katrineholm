@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const schoolsApi = createApi({
     reducerPath: 'schoolsApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
-    tagTypes: ['education', 'review'],
+    tagTypes: ['education', 'review', 'footerTop', 'footerMiddle'],
     endpoints: (builder) => ({
-        // Educations CRUD
+        // Educations
         // create
         createEducation: builder.mutation({
             query: (data) => ({ url: 'education', method: 'POST', body: data }),
@@ -26,7 +26,7 @@ export const schoolsApi = createApi({
             query: (id) => ({ url: `education/${id}`, method: 'DELETE' }),
             invalidatesTags: ['education']
         }),
-        // Review CRUD
+        // Review
         // create
         createReview: builder.mutation({
             query: (data) => ({ url: 'review', method: 'POST', body: data }),
@@ -59,7 +59,24 @@ export const schoolsApi = createApi({
                 maxRetries: 0,
             },
         }),
-        
+        // footer top part links
+        readFooterTopLinks: builder.query({
+            query: () => 'footerTop',
+            providesTags: ['footerTop']
+        }),
+        updateFooterTopLinks: builder.mutation({
+            query: (data) => ({ url: 'footerTop', method: 'PUT', body: data }),
+            invalidatesTags: ['footerTop']
+        }),
+        // footer middle part
+        readFooterMiddleLinks: builder.query({
+            query: () => 'footerMiddle',
+            providesTags: ['footerMiddle']
+        }),
+        updateFooterMiddleLinks: builder.mutation({
+            query: (data) => ({ url: 'footerMiddle', method: 'PUT', body: data }),
+            invalidatesTags: ['footerMiddle']
+        }),
     })
 });
 
@@ -74,4 +91,8 @@ export const {
     useUpdateReviewWrapperMutation,
     useDeleteReviewMutation,
     useSendMessageMutation,
+    useReadFooterTopLinksQuery,
+    useUpdateFooterTopLinksMutation,
+    useReadFooterMiddleLinksQuery,
+    useUpdateFooterMiddleLinksMutation,
 } = schoolsApi;

@@ -26,7 +26,7 @@ const Section5 = () => {
         if (form) {
             if (formRef.current) {
                 formRef.current.style.display = 'flex';
-                formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
             clearFields();
             setTimeout(() => {
