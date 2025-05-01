@@ -9,7 +9,7 @@ header > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 25px;
 }
 .navToggleButton {
     display: flex;
@@ -42,27 +42,24 @@ header > nav > ul {
     align-items: center;
     list-style: none;
     width: 100%;
-    background: radial-gradient(circle at 60% 80%, rgba(181, 144, 81, 0.304), transparent 50%),
-                radial-gradient(circle at -20% 80%, rgba(0, 170, 255, 0.544), transparent 50%),
-                radial-gradient(circle at 40% 10%, rgba(3, 66, 255, 0.362), transparent 70%);
-    background-color: var(--bgLight);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: var(--thickDarkBorder);
+    background-image: url('https://www.freeiconspng.com/uploads/wave-lines-vector-png-photo-15.png');
+    background-size: 100% 50%;
+    background-color: #333;
+    border-bottom: solid 0.5px #ffffff4b;
 }
 header > nav > ul > li {
     width: 100%;
     text-align: center;
-    border-top: var(--thickDarkBorder);
+    border-top: solid 0.5px #ffffff4b;
+    background: #000000aa;
     font-size: 20px;
 }
 header > nav > ul > li > a {
-    color: var(--textLight);
-    font-family: var(--formalFont);
+    color: var(--textDark);
     display: block;
     width: 100%;
     padding: 20px;
 }
-header > nav > ul > li:nth-child(1) {
-    border-top: none;
+.active {
+    background: rgba(0, 100, 182, 0.567);
 }

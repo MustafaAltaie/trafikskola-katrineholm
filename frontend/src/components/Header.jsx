@@ -21,16 +21,11 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
             </div>
             <nav className={toggleBtn ? 'navOpened' : ''}>
                 <ul>
-                    {location.pathname !== '/' &&
-                    <li><Link to={'/'}>Hem</Link></li>}
-                    {!location.pathname.includes('priser') &&
-                    <li><Link to={'/priser'}>Priser</Link></li>}
-                    {!location.pathname.includes('riskutbildning') &&
-                    <li><Link to={'/riskutbildning'}>Riskutbildning</Link></li>}
-                    {!location.pathname.includes('handledarutbildning') &&
-                    <li><Link to={'/handledarutbildning'}>Handledarutbildning</Link></li>}
-                    {!location.pathname.includes('intensivkurs') &&
-                    <li><Link to={'/intensivkurs'}>Intensivkurs</Link></li>}
+                    <li><Link to={'/'} className={location.pathname === '/' ? 'active' : ''}>Hem</Link></li>
+                    <li><Link to={'/priser'} className={location.pathname === '/priser' ? 'active' : ''}>Priser</Link></li>
+                    <li><Link to={'/riskutbildning'} className={location.pathname === '/riskutbildning' ? 'active' : ''}>Riskutbildning</Link></li>
+                    <li><Link to={'/handledarutbildning'} className={location.pathname === '/handledarutbildning' ? 'active' : ''}>Handledarutbildning</Link></li>
+                    <li><Link to={'/intensivkurs'} className={location.pathname === '/intensivkurs' ? 'active' : ''}>Intensivkurs</Link></li>
                     {!location.pathname.includes('priser') &&
                     !location.pathname.includes('riskutbildning') &&
                     !location.pathname.includes('handledarutbildning') &&
@@ -41,8 +36,7 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
                             <li><a onClick={() => {scrollToSec4(); setToggleBtn(false)}}>Kontakta Oss</a></li>
                         </>
                     }
-                    {!location.pathname.includes('om-oss') &&
-                    <li><Link to={'/om-oss'}>Om Oss</Link></li>}
+                    <li><Link to={'/om-oss'} className={location.pathname === '/om-oss' ? 'active' : ''}>Om Oss</Link></li>
                 </ul>
             </nav>
         </header>

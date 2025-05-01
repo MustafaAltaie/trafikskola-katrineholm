@@ -32,15 +32,61 @@
     border-right: solid 10px rgb(45, 134, 202);
 }
 .pricePageCard:nth-of-type(even) {
-    border-right: solid 10px rgb(180, 124, 35);
+    border-right: solid 10px rgb(192, 135, 44);
 }
 .pricePageCard > div:nth-child(1) {
     gap: 5px;
 }
-.pricePageCard > div:nth-child(1) > p {
+.pricePageCard:nth-of-type(odd) > div:nth-child(1) > h2 {
     color: rgb(45, 134, 202);
+    font-family: var(--formalFont);
+}
+.pricePageCard:nth-of-type(even) > div:nth-child(1) > h2 {
+    color: rgb(151, 101, 20);
     font-family: var(--formalFont);
 }
 .pricePageCard h1 {
     white-space: nowrap;
+}
+.pricePageCard p {
+    font-family: var(--formalFont);
+}
+
+/* Settings */
+.pricePageAddPriceButton {
+    font-size: 45px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    user-select: none;
+    transition: 0.2s linear 0.4s;
+}
+.pricePageSettingsMenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+}
+.pricePageSettingsMenuOn {
+    max-height: 200px;
+}
+.pricePageSettingsMenu input {
+    border: solid 0.5px #00000055;
+}
+.pricePageCardSettings {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.pricePageCardSettings > h1 {
+    width: 30%;
+    padding: 5px 0;
+    text-align: center;
 }

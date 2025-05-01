@@ -1,6 +1,6 @@
-import { useEffect, useState, forwardRef } from 'react';
+import { useEffect, useState, forwardRef, useRef } from 'react';
 import '../styles/Section4.css';
-import { useSendMessageMutation, useReadSec4SocialLinksQuery } from '../features/schoolsApi';
+import { useSendMessageMutation, useUpdateSec4SocialLinksMutation, useReadSec4SocialLinksQuery } from '../features/schoolsApi';
 
 const Section4 = forwardRef(( props, ref ) => {
     const [name, setName] = useState('');
@@ -9,6 +9,9 @@ const Section4 = forwardRef(( props, ref ) => {
     const [message, setMessage] = useState('');
     const [isFilled, setIsFilled] = useState(false);
     const [sendMessage] = useSendMessageMutation();
+    const [menu, setMenu] = useState(false);
+    const menuRef = useRef(null);
+    const [updateSec4SocialLinks] = useUpdateSec4SocialLinksMutation();
     const { data: mediaLinks, isLoading } = useReadSec4SocialLinksQuery();
     const [links, setLinks] = useState({
         link1: '',
@@ -24,6 +27,18 @@ const Section4 = forwardRef(( props, ref ) => {
             setIsFilled(false);
         }
     }, [name, mobile, email]);
+
+    useEffect(() => {
+        if (menu) {
+            if (menuRef.current) {
+                menuRef.current.classList.add('sec4SettingsOn');
+                menuRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else {
+            if (menuRef.current)
+                menuRef.current.classList.remove('sec4SettingsOn');
+        }
+    }, [menu]);
 
     useEffect(() => {
         if(mediaLinks) {
@@ -63,6 +78,24 @@ const Section4 = forwardRef(( props, ref ) => {
         setEmail('');
         setMessage('');
         setIsFilled(false);
+    }
+
+    const prepareLinks = (e) => {
+        setLinks(prev => ({
+            ...prev, [e.target.name]: e.target.value
+        }));
+    }
+
+    const handleUpdateLinks = async () => {
+        try {
+            const res = await updateSec4SocialLinks(links);
+            if(res) {
+                setMenu(false);
+            }
+        } catch (err) {
+            console.log('Error updating links', err);
+            alert('Uppdateringen gick inte!');
+        }
     }
 
     const icons = [
@@ -112,6 +145,13 @@ const Section4 = forwardRef(( props, ref ) => {
                                 </a>
                             </div>
                         ))}
+                    </div>
+                    <div ref={menuRef} className='sec4Settings flexColumn'>
+                        <input type="text" className='styledInput1' title='Facebook' placeholder='Facebook' name='link1' value={links.link1} onChange={prepareLinks} />
+                        <input type="text" className='styledInput1' title='Messenger' placeholder='Messenger' name='link2' value={links.link2} onChange={prepareLinks} />
+                        <input type="text" className='styledInput1' title='Instagram' placeholder='Instagram' name='link3' value={links.link3} onChange={prepareLinks} />
+                        <input type="text" className='styledInput1' title='Mobile' placeholder='Mobile' name='link4' value={links.link4} onChange={prepareLinks} />
+                        <button className='styledInput1' onClick={handleUpdateLinks}>Spara</button>
                     </div>
                 </div>
             </div>

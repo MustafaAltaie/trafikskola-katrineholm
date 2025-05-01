@@ -91,7 +91,7 @@ const Section5 = () => {
                             <div className='sec5CommentPart2 flexColumn'>
                                 <div>
                                     <p>{review.name || 'Anonym'}, {review.age > 0 && review.age + ' år'}</p>
-                                    <h5 className='yellowStars'><SchoolsRating rating={review.rating} size='small' colorFill='#d90' colorEmpty='#aaa' /></h5>
+                                    <h5><SchoolsRating rating={review.rating} size='small' colorFill='#d90' colorEmpty='#aaa' /></h5>
                                 </div>
                                 {review.message ?
                                 <p>{review.message}</p> :

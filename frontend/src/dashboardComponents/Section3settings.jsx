@@ -76,7 +76,7 @@ const Section3 = () => {
     }
 
     return (
-        <section className="section3">
+        <section className="section3" style={{ paddingTop: '70px' }}>
             <h1>Våra Utbildningar</h1>
             <div>
                 <div className="sec3CardWrapper">

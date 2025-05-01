@@ -66,6 +66,7 @@
     border-top: solid 0.7px #ffffff44;
 }
 .ec4SocialMedia {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -86,7 +87,20 @@
     -webkit-backdrop-filter: blur(2px);
     cursor: pointer;
 }
-.ec4SocialMedia > div > i {
-    font-size: 22px;
+.ec4SocialMedia a {
     color: #ffffffbb;
+    font-size: 22px;
+    color: inherit;
+}
+
+/* Setings */
+.sec4Settings {
+    gap: 5px;
+    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+.sec4SettingsOn {
+    max-height: 250px;
 }

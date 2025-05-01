@@ -11,6 +11,7 @@ import RiskPage from './components/RiskPage.jsx';
 import SupervisorPage from './components/SupervisorPage.jsx';
 import IntensivePage from './components/IntensivePage.jsx';
 import AboutPage from './components/AboutPage.jsx';
+import PricesPageSettings from './dashboardComponents/PricesPageSettings.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/handledarutbildning" element={ <SupervisorPage /> } />
           <Route path="/intensivkurs" element={ <IntensivePage /> } />
           <Route path="/om-oss" element={ <AboutPage /> } />
+          <Route path="/priserSettings" element={ <PricesPageSettings /> } />
         </Routes>
       </StrictMode>
     </BrowserRouter>

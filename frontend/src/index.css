@@ -59,10 +59,19 @@ textarea {
 b {
     font-weight: bold;
 }
+.styledInput1 {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
 .navPage {
-    padding-top: 50px;
+    padding-top: 70px;
     background-image: url('https://www.freeiconspng.com/uploads/wave-lines-vector-png-photo-15.png');
     background-attachment: fixed;
     background-size: 100% 50%;
     background-color: #eee;
+}
+.gap5 {
+    gap: 5px;
 }

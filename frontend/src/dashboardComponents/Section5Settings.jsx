@@ -88,13 +88,14 @@ const Section5 = () => {
 
     return (
         <section className="section5 flexColumn">
-            <h1 onClick={handleUpdateLock} style={{ fontSize: '40px' }}>{lock ? '🔒' : '🔓'}</h1>
+            <h1 className='sec5Lock' onClick={handleUpdateLock} style={{ fontSize: '40px' }}>{lock ? '🔒' : '🔓'}</h1>
             <h1>Se vad tidigare elever säger om sin upplevelse hos oss!</h1>
             <div className='sec5HeaderText'>
                 <p>Våra omdömen:{ratingAverage}</p>
                 <SchoolsRating rating={ratingAverage} size='medium' colorFill='#fa0' colorEmpty='#bbb' />
             </div>
             
+            {reviews?.length > 0 &&
             <div className="sec5ColumnsWrapper glassMorphism">
                 <div className="sec5Column">
                     {isLoading && <p>...Loading</p>}
@@ -103,7 +104,7 @@ const Section5 = () => {
                         <Section5SettingsReview key={review._id} review={review} />
                     ))}
                 </div>
-            </div>
+            </div>}
             <form ref={formRef} className='glassMorphism flexColumn'>
                 <h3 className='sec5FormCloseButton' onClick={() => setForm(false)}>X</h3>
                 <div>

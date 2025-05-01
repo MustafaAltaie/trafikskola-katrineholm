@@ -86,12 +86,6 @@ footer {
     display: flex;
     gap: 10px;
 }
-.styledInput1 {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    width: 100%;
-}
 button.styledInput1 {
     background: #a05d00;
     color: white;
@@ -125,7 +119,4 @@ button.styledInput1 {
 }
 .footerTopSettingsOn, .footerMiddleSettingsOn {
     max-height: 500px;
-}
-.footerTopSettingsOff, .footerMiddleSettingsOff {
-    max-height: 0;
 }

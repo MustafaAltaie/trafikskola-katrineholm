@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const middleLinks = await MiddleLinks.findOne();
+        console.log(middleLinks)
         res.json(middleLinks);
     } catch (err) {
         console.error(err),
