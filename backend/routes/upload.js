@@ -27,4 +27,17 @@ router.post('/', upload.single('image'), (req, res) => {
     res.status(200).json({ path: `/images/${req.file.filename}` });
 });
 
+router.get('/', (req, res) => {
+    fs.readdir(imageDir, (err, files) => {
+        if (err) {
+            console.error('Error reading images directory:', err);
+            return res.status(500).json({ message: 'Failed to read image directory.' });
+        }
+
+        // Return full URLs for frontend to render
+        const images = files.map(file => `/images/${file}`);
+        res.status(200).json(images);
+    });
+});
+
 export default router;

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import HeaderSettings from './HeaderSettings';
 import FooterSettings from './FooterSettings';
 import '../styles/aboutPage.css';
-import { useUploadImageMutation } from '../features/schoolsApi';
+import { useUploadImageMutation, useReadUploadedImagesQuery } from '../features/schoolsApi';
 
 const AboutPage = () => {
     const [file, setFile] = useState(null);
-    const [uploadImage, { isLoading, data, error }] = useUploadImageMutation();
+    const [uploadImage, { isLoading, data }] = useUploadImageMutation();
+    const { data: images = [], refetch } = useReadUploadedImagesQuery();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -14,16 +15,15 @@ const AboutPage = () => {
 
     const handleUpload = async () => {
         if (!file) return;
-    
         const formData = new FormData();
         formData.append('image', file);
-    
         try {
-          await uploadImage(formData).unwrap();
-          alert('Upload successful!');
+            await uploadImage(formData).unwrap();
+            alert('Upload successful!');
+            refetch(); // Refresh image list after upload
         } catch (err) {
-          console.error('Upload error:', err);
-          alert('Failed to upload.');
+            console.error('Upload error:', err);
+            alert('Failed to upload.');
         }
     }
 
@@ -55,6 +55,13 @@ const AboutPage = () => {
                         </button>
 
                         {data && <p>Uploaded to: {data.path}</p>}
+                    </div>
+                    <div className="uploadedImagesWrapper">
+                        {images.map((url, idx) => (
+                            <div key={idx}>
+                                <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
+                            </div>
+                        ))}
                     </div>
                     <div className="aboutPageImageWrapper">
                         <div><img src="https://cdn.pixabay.com/photo/2022/07/04/10/46/vintage-car-7300881_1280.jpg" alt="image" /></div>
