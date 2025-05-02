@@ -10,6 +10,7 @@ import FooterMiddleRoutes from './routes/footerMiddleRoutes.js';
 import sec4SocialLinksRoutes from './routes/sec4SocialLinksRoutes.js';
 import pricePageRoutes from './routes/pricePageRoutes.js';
 import intensiveRoutes from './routes/intensiveRoutes.js';
+import uploadRoute from './routes/upload.js';
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.use('/api/footerMiddle', FooterMiddleRoutes);
 app.use('/api/sec4MediaLinks', sec4SocialLinksRoutes);
 app.use('/api/pricePage', pricePageRoutes);
 app.use('/api/intensive', intensiveRoutes);
+app.use('/images', express.static('backend/images'));
+app.use('/api/upload', uploadRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

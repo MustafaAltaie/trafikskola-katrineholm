@@ -11,6 +11,7 @@ export const schoolsApi = createApi({
         'sec4MediaLinks',
         'pricePage',
         'intensive',
+        'upload'
     ],
     endpoints: (builder) => ({
         // Educations
@@ -128,6 +129,11 @@ export const schoolsApi = createApi({
             query: (id) => ({ url: `intensive/${id}`, method: 'DELETE' }),
             invalidatesTags: ['intensive']
         }),
+        // upload images
+        uploadImage: builder.mutation({
+            query: (formData) => ({ url: '/upload', method: 'POST', body: formData }),
+            invalidatesTags: ['upload']
+        }),
     })
 });
 
@@ -163,4 +169,6 @@ export const {
     useReadIntensiveQuery,
     useUpdateIntensiveMutation,
     useDeleteIntensiveMutation,
+    // Upload images
+    useUploadImageMutation,
 } = schoolsApi;

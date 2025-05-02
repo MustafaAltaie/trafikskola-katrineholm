@@ -13,6 +13,7 @@ import IntensivePage from './components/IntensivePage.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import PricesPageSettings from './dashboardComponents/PricesPageSettings.jsx';
 import IntensivePageSettings from './dashboardComponents/IntensivePageSettings.jsx';
+import AboutPageSettings from './dashboardComponents/AboutPageSettings.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/om-oss" element={ <AboutPage /> } />
           <Route path="/dashboard-secret-9xJq_v7Z-UltimateAccess88/priserSettings" element={ <PricesPageSettings /> } />
           <Route path="/dashboard-secret-9xJq_v7Z-UltimateAccess88/intensivkursSettings" element={ <IntensivePageSettings /> } />
+          <Route path="/dashboard-secret-9xJq_v7Z-UltimateAccess88/om-ossSettings" element={ <AboutPageSettings /> } />
         </Routes>
       </StrictMode>
     </BrowserRouter>

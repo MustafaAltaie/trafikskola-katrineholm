@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import FooterSettings from "./FooterSettings";
 import HeaderSettings from "./HeaderSettings";
 import '../styles/intensivePage.css';
-import IntensivePageSettingsCard from './intensivePageSettingsCard';
+import IntensivePageSettingsCard from './IntensivePageSettingsCard';
 import { useCreateIntensiveMutation, useReadIntensiveQuery, useUpdateIntensiveMutation, useDeleteIntensiveMutation } from '../features/schoolsApi';
 
 const IntensivePage = () => {
