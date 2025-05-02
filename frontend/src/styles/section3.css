@@ -45,11 +45,11 @@
 }
 .sec3Card > i {
     position: absolute;
-    transform: translate(-30%, 30%) rotate(-45deg);
+    transform: translate(-27%, 27%) rotate(-45deg);
     background: #2e9837;
     padding: 3px 20px 7px 20px;
     color: #fff;
-    clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+    clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%);
 }
 .sec3CardInnerWrapper {
     align-items: flex-start;

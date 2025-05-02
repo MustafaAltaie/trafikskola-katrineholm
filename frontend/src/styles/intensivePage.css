@@ -1,9 +1,10 @@
 .intensivePageWrapper > div {
+    position: relative;
     background: #ffffffdd;
     gap: 10px;
     padding: 30px;
 }
-.intensivePageWrapper h1 {
+.intensivePageWrapper h3 {
     font-family: var(--formalFont);
 }
 .intensivePageWrapper h2 {
@@ -12,24 +13,65 @@
     font-family: var(--formalFont);
 }
 .intensivePageWrapper h2 > img {
-    height: 60px;
+    height: 50px;
     pointer-events: none;
 }
 .intensivePageWrapper hr {
     border: solid 0.5px #00000033;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 .intensivePageWrapper button {
     padding: 10px;
+    margin-top: 10px;
     border-radius: 10px;
     border: solid 0.7px #00000044;
     background: var(--bgBToP);
     color: #fff;
 }
 .intensivePageEducationWrapper {
-    padding-top: 10px;
+    padding-top: 20px;
     gap: 30px;
 }
 .intensivePageEducationWrapper > div {
     border: solid 0.7px #00000077;
+}
+
+/* Settings */
+.intensivePageSettingsButton {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+    font-family: var(--formalFont);
+    font-size: 40px;
+    padding-bottom: 10px;
+    user-select: none;
+    transition: 0.2s;
+}
+.intensivePageSettings {
+    position: relative;
+    overflow: hidden;
+    padding: 0 30px;
+    margin: 20px 0;
+    transition: 0.4s ease-in-out;
+}
+.intensivePageSettings > div > button {
+    background: #07a;
+}
+.intensivePageSettings > ul {
+    list-style: none;
+}
+.intensivePageSettings > ul > li {
+    background: #eee;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border: dashed 0.7px #00000077;
+    border-radius: 5px;
+    transition: transform 0.2s, width 0.4s;
+}
+.intensivePageSettings > ul > li > b {
+    cursor: pointer;
 }

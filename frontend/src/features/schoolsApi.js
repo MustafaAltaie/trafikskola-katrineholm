@@ -3,7 +3,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const schoolsApi = createApi({
     reducerPath: 'schoolsApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
-    tagTypes: ['education', 'review', 'footerTop', 'footerMiddle', 'sec4MediaLinks', 'pricePage'],
+    tagTypes: [
+        'education',
+        'review',
+        'footerTop',
+        'footerMiddle',
+        'sec4MediaLinks',
+        'pricePage',
+        'intensive',
+    ],
     endpoints: (builder) => ({
         // Educations
         // create
@@ -102,29 +110,57 @@ export const schoolsApi = createApi({
         deletePricePage: builder.mutation({
             query: (id) => ({ url: `pricePage/${id}`, method: 'Delete' }),
             invalidatesTags: ['pricePage']
-        })
+        }),
+        // intensive course page
+        createIntensive: builder.mutation({
+            query: (data) => ({ url: 'intensive', method: 'POST', body: data }),
+            invalidatesTags: ['intensive']
+        }),
+        readIntensive: builder.query({
+            query: () => 'intensive',
+            providesTags: ['intensive']
+        }),
+        updateIntensive: builder.mutation({
+            query: ({ id, ...data }) => ({ url: `intensive/${id}`, method: 'PUT', body: data }),
+            invalidatesTags: ['intensive']
+        }),
+        deleteIntensive: builder.mutation({
+            query: (id) => ({ url: `intensive/${id}`, method: 'DELETE' }),
+            invalidatesTags: ['intensive']
+        }),
     })
 });
 
 export const {
+    // Education
     useCreateEducationMutation,
     useReadEducationsQuery,
     useUpdateEducationMutation,
     useDeleteEducationMutation,
+    // Review
     useCreateReviewMutation,
     useReadReviewQuery,
     useReadReviewWrapperQuery,
     useUpdateReviewWrapperMutation,
     useDeleteReviewMutation,
+    // Message
     useSendMessageMutation,
+    // Footer
     useReadFooterTopLinksQuery,
     useUpdateFooterTopLinksMutation,
     useReadFooterMiddleLinksQuery,
     useUpdateFooterMiddleLinksMutation,
+    // Section 4 Social media Links
     useReadSec4SocialLinksQuery,
     useUpdateSec4SocialLinksMutation,
+    // Price Page
     useCreatePricePageMutation,
     useReadPricePageQuery,
     useUpdatePricePageMutation,
     useDeletePricePageMutation,
+    // Intensive courses page
+    useCreateIntensiveMutation,
+    useReadIntensiveQuery,
+    useUpdateIntensiveMutation,
+    useDeleteIntensiveMutation,
 } = schoolsApi;

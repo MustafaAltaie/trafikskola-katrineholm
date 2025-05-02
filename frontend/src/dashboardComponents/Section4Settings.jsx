@@ -54,7 +54,7 @@ const Section4 = forwardRef(( props, ref ) => {
     const handleMessage = () => {
         const isValidEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
         if (!isValidEmail(email) && !mobile) {
-            alert('Please enter a valid email address or mobile number');
+            alert('Ange en giltig e-postadress eller ett mobilnummer.');
             return;
         }
 

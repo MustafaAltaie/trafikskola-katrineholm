@@ -47,6 +47,14 @@ main > section, footer {
     display: flex;
     flex-direction: column;
 }
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gap5 {
+    gap: 5px;
+}
 button {
     cursor: pointer;
 }
@@ -72,6 +80,16 @@ b {
     background-size: 100% 50%;
     background-color: #eee;
 }
-.gap5 {
-    gap: 5px;
+.ngLines {
+    background-image: url('https://www.freeiconspng.com/uploads/wave-lines-vector-png-photo-15.png');
+    background-attachment: fixed;
+    background-size: 100% 50%;
+    background-color: #eee;
+}
+.bordered7 {
+    border: solid 0.7px #00000055;
+}
+.squared40 {
+    width: 40px;
+    height: 40px;
 }

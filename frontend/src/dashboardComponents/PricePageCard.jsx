@@ -16,7 +16,7 @@ const PricePageCard = ({ priceCard, prepareUpdate }) => {
 
     return (
         <>
-            <div className='pricePageCard glassMorphism' style={{ paddingBottom: '70px', position: 'relative' }}>
+            <div className='pricePageCard glassMorphism' style={{ paddingBottom: '50px', position: 'relative' }}>
                 <div className='flexColumn'>
                     <h2>{priceCard.title}</h2>
                     <p>{priceCard.description}</p>

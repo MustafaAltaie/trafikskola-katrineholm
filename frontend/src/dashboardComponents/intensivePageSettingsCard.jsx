@@ -1,18 +1,10 @@
-import { useDeleteEducationMutation } from "../features/schoolsApi";
 
-const Section3SettingsCard = ({ education, handlePrepareUpdate }) => {
-    const [deleteEducation] = useDeleteEducationMutation();
 
-    const handleRemoveEducation = () => {
-        if (confirm('Är du säker du vill tabort utbildningen?')) {
-            deleteEducation(education._id);
-        }
-    }
-
+const intensivePageSettingsCard = ({ education, handlePrepareUpdate, handleDeleteIntensive }) => {
     return (
         <div className="sec3Card flexColumn">
             <div className="sec3SettingsCardHeader">
-                <p onClick={handleRemoveEducation}>🗑️ Tabort</p>
+                <p onClick={() => handleDeleteIntensive(education._id)}>🗑️ Tabort</p>
                 <p onClick={() => handlePrepareUpdate(education)}>🖋️ Radigera</p>
             </div>
             {education.discount > 0 &&
@@ -32,4 +24,4 @@ const Section3SettingsCard = ({ education, handlePrepareUpdate }) => {
     )
 }
 
-export default Section3SettingsCard;
+export default intensivePageSettingsCard;

@@ -22,11 +22,11 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
             <nav className={toggleBtn ? 'navOpened' : ''}>
                 <ul>
                     <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88' ? 'active' : ''}>Hem</Link></li>
-                    <li><Link to={'/priserSettings'} className={location.pathname === '/priserSettings' ? 'active' : ''}>Priser</Link></li>
-                    <li><Link to={'/riskutbildningSettings'} className={location.pathname === '/riskutbildningSettings' ? 'active' : ''}>Riskutbildning</Link></li>
-                    <li><Link to={'/handledarutbildningSettings'} className={location.pathname === '/handledarutbildningSettings' ? 'active' : ''}>Handledarutbildning</Link></li>
-                    <li><Link to={'/intensivkursSettings'} className={location.pathname === '/intensivkursSettings' ? 'active' : ''}>Intensivkurs</Link></li>
-                    <li><Link to={'/om-ossSettings'} className={location.pathname === '/om-ossSettings' ? 'active' : ''}>Om Oss</Link></li>
+                    <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88/priserSettings'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88/priserSettings' ? 'active' : ''}>Priser</Link></li>
+                    <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88/riskutbildningSettings'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88/riskutbildningSettings' ? 'active' : ''}>Riskutbildning</Link></li>
+                    <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88/handledarutbildningSettings'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88/handledarutbildningSettings' ? 'active' : ''}>Handledarutbildning</Link></li>
+                    <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88/intensivkursSettings'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88/intensivkursSettings' ? 'active' : ''}>Intensivkurs</Link></li>
+                    <li><Link to={'/dashboard-secret-9xJq_v7Z-UltimateAccess88/om-ossSettings'} className={location.pathname === '/dashboard-secret-9xJq_v7Z-UltimateAccess88/om-ossSettings' ? 'active' : ''}>Om Oss</Link></li>
                 </ul>
             </nav>
         </header>
