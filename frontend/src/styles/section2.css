@@ -1,13 +1,14 @@
 .section2 {
-    background: radial-gradient(circle at 80% 50%, rgba(206, 149, 65, 0.221), transparent 60%),
-                radial-gradient(circle at 20% 40%, #2a81d356, transparent 60%);
     background-color: var(--bgLight);
     border-bottom: var(--thinDarkBorder);
+}
+.section2 > div {
+    background: #ffffffcc;
 }
 .section2 i {
     margin-right: 10px;
 }
-.section2 > h1 {
+.section2 > div > h1 {
     padding: 10px;
     text-align: center;
     background-color: #5f94d8;

@@ -9,6 +9,7 @@
 }
 .sec4MainWrapper {
     padding: 30px 50px;
+    background-color: #22222255;
 }
 .sec4Contact {
     gap: 10px;
@@ -34,7 +35,7 @@
                 radial-gradient(circle at 100% 20%, rgba(59, 150, 255, 0.452), transparent 30%);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
-    background-color: #00000055;
+    background-color: #00000033;
     border-radius: 20px;
 }
 .sec4Form > div {
