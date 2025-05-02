@@ -138,6 +138,10 @@ export const schoolsApi = createApi({
             query: () => '/upload',
             providesTags: ['upload']
         }),
+        deleteImage: builder.mutation({
+            query: (filename) => ({ url: `/upload/${filename}`, method: 'DELETE' }),
+            invalidatesTags: ['upload']
+        }),
     })
 });
 
@@ -176,4 +180,5 @@ export const {
     // Upload images
     useUploadImageMutation,
     useReadUploadedImagesQuery,
+    useDeleteImageMutation,
 } = schoolsApi;

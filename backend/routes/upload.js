@@ -40,4 +40,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.delete('/:filename', (req, res) => {
+    const filePath = path.join(imageDir, req.params.filename);
+
+    fs.unlink(filePath, (err) => {
+        if (err) {
+            console.error('Failed to delete image:', err);
+            return res.status(500).json({ message: 'Failed to delete image.' });
+        }
+        res.status(200).json({ message: 'Image deleted successfully.' });
+    });
+});
+
 export default router;

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import HeaderSettings from './HeaderSettings';
 import FooterSettings from './FooterSettings';
 import '../styles/aboutPage.css';
-import { useUploadImageMutation, useReadUploadedImagesQuery } from '../features/schoolsApi';
+import { useUploadImageMutation, useReadUploadedImagesQuery, useDeleteImageMutation } from '../features/schoolsApi';
 
 const AboutPage = () => {
     const [file, setFile] = useState(null);
     const [uploadImage, { isLoading, data }] = useUploadImageMutation();
     const { data: images = [], refetch } = useReadUploadedImagesQuery();
+    const [deleteImage] = useDeleteImageMutation();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -20,10 +21,21 @@ const AboutPage = () => {
         try {
             await uploadImage(formData).unwrap();
             alert('Upload successful!');
-            refetch(); // Refresh image list after upload
+            refetch();
         } catch (err) {
             console.error('Upload error:', err);
             alert('Failed to upload.');
+        }
+    }
+
+    const handleDelete = async (url) => {
+        const filename = url.split('/').pop();
+        try {
+            await deleteImage(filename).unwrap();
+            refetch();
+        } catch (err) {
+            console.error('Delete error:', err);
+            alert('Failed to delete image.');
         }
     }
 
@@ -60,6 +72,7 @@ const AboutPage = () => {
                         {images.map((url, idx) => (
                             <div key={idx}>
                                 <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
+                                <button onClick={() => handleDelete(url)}>Delete</button>
                             </div>
                         ))}
                     </div>
