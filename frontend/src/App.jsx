@@ -11,8 +11,8 @@ function App() {
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
 
-  const scrollToSec3 = () => section3Ref.current?.scrollIntoView({ behavior: 'smooth' });
-  const scrollToSec4 = () => section4Ref.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSec3 = () => section3Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const scrollToSec4 = () => section4Ref.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
 
   return (
     <>
