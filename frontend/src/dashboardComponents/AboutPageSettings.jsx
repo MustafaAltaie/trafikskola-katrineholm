@@ -6,13 +6,19 @@ import { useUploadImageMutation, useReadUploadedImagesQuery, useDeleteImageMutat
 
 const AboutPage = () => {
     const [file, setFile] = useState(null);
-    const [uploadImage, { isLoading, data }] = useUploadImageMutation();
-    const { data: images = [], refetch } = useReadUploadedImagesQuery();
+    const [uploadImage, { isLoading }] = useUploadImageMutation();
+    const { data: images = [] } = useReadUploadedImagesQuery();
     const [deleteImage] = useDeleteImageMutation();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
+
+    useEffect(() => {
+        if(file) {
+            handleUpload();
+        }
+    }, [file]);
 
     const handleUpload = async () => {
         if (!file) return;
@@ -20,22 +26,22 @@ const AboutPage = () => {
         formData.append('image', file);
         try {
             await uploadImage(formData).unwrap();
-            alert('Upload successful!');
-            refetch();
+            setFile('');
         } catch (err) {
             console.error('Upload error:', err);
-            alert('Failed to upload.');
+            alert('Kunde inte ladda upp.');
         }
     }
 
     const handleDelete = async (url) => {
+        const deleteConfirm = confirm('Vill du radera bilder?');
+        if(!deleteConfirm) return;
         const filename = url.split('/').pop();
         try {
             await deleteImage(filename).unwrap();
-            refetch();
         } catch (err) {
             console.error('Delete error:', err);
-            alert('Failed to delete image.');
+            alert('Kunde inte radera.');
         }
     }
 
@@ -60,31 +66,19 @@ const AboutPage = () => {
                     <br />
                     <p>Kombinera gärna körningen på skolan med mängdträning hemma med din handledare. Givetvis har vi även intensivkurser för den som vill bli klar på kortare tid.</p>
                     <br />
-                    <div>
-                        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-                        <button onClick={handleUpload} disabled={isLoading}>
-                            {isLoading ? 'Uploading...' : 'Upload'}
-                        </button>
-
-                        {data && <p>Uploaded to: {data.path}</p>}
-                    </div>
-                    <div className="uploadedImagesWrapper">
+                    <div className="aboutPageImageWrapper">
                         {images.map((url, idx) => (
-                            <div key={idx}>
+                            <div key={idx} onClick={() => handleDelete(url)}>
                                 <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
-                                <button onClick={() => handleDelete(url)}>Delete</button>
                             </div>
                         ))}
-                    </div>
-                    <div className="aboutPageImageWrapper">
-                        <div><img src="https://cdn.pixabay.com/photo/2022/07/04/10/46/vintage-car-7300881_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2020/07/15/13/12/lotus-5407670_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2017/11/19/23/25/bmw-2964072_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2024/07/13/07/40/cars-8891625_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2015/06/05/15/02/audi-798530_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2016/03/26/22/34/car-1281640_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2023/02/22/15/27/steering-wheel-7806865_1280.jpg" alt="image" /></div>
+                        <div className='aboutPageSettingsWrapper'>
+                            {!file &&
+                            <label className="customFileUpload flexCenter">
+                                <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+                            </label>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

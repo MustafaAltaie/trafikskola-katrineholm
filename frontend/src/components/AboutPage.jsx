@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import '../styles/aboutPage.css';
+import { useReadUploadedImagesQuery } from '../features/schoolsApi';
 
 const AboutPage = () => {
+    const { data: images = [] } = useReadUploadedImagesQuery();
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
@@ -30,14 +33,11 @@ const AboutPage = () => {
                     <p>Kombinera gärna körningen på skolan med mängdträning hemma med din handledare. Givetvis har vi även intensivkurser för den som vill bli klar på kortare tid.</p>
                     <br />
                     <div className="aboutPageImageWrapper">
-                        <div><img src="https://cdn.pixabay.com/photo/2022/07/04/10/46/vintage-car-7300881_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2020/07/15/13/12/lotus-5407670_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2017/11/19/23/25/bmw-2964072_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2024/07/13/07/40/cars-8891625_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2015/06/05/15/02/audi-798530_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2016/03/26/22/34/car-1281640_1280.jpg" alt="image" /></div>
-                        <div><img src="https://cdn.pixabay.com/photo/2023/02/22/15/27/steering-wheel-7806865_1280.jpg" alt="image" /></div>
+                        {images.map((url, idx) => (
+                            <div key={idx} onClick={() => handleDelete(url)}>
+                                <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
