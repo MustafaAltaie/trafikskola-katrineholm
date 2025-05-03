@@ -61,7 +61,7 @@
     max-height: 400px;
     overflow-x: scroll;
     scrollbar-width: none;
-    background-image: url('../../images/lines.png');
+    background-image: url('http://localhost:5000/images/app-images/lines.png');
     background-attachment: fixed;
     background-size: 100% 50%;
     background-color: #ffffff;

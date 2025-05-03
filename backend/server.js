@@ -37,6 +37,7 @@ app.use('/about-images', express.static(path.join(__dirname, 'images', 'about-im
 app.use('/api/aboutImages', aboutImagesRoutes);
 app.use('/home-images', express.static(path.join(__dirname, 'images', 'home-images')));
 app.use('/api/homeImages', homeImagesRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

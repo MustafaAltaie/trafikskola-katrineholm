@@ -1,13 +1,30 @@
 import '../styles/section1.css';
+import { useReadHomeImagesQuery } from '../features/schoolsApi';
+import { useEffect, useState } from 'react';
 
 const Section1 = () => {
+    const { data: images = [] } = useReadHomeImagesQuery();
+    const imagesLength = images.length;
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+            const imageInt = setInterval(() => {
+                setCount(prev => (prev + 1) % imagesLength);
+            }, 5000);
+
+            return () => clearInterval(imageInt);
+        }, [imagesLength]);
+
     return (
         <section className="section1">
+            <div className='Sec1ImageWrapper'>
+                {images.map((image, indx) =>
+                    <img key={indx} className={indx === count ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
+            </div>
             <div className="sec1DetailsWrapper">
                 <h1>Välkommen till <span>katrineholm</span>-Eskilstuna <span>trafikskolan i katrineholm</span></h1>
                 <p>Skaffa ditt körkort snabbt och smidigt hos oss. Erfaren lärare, flexibla tider och personligt stöd hela vägen.</p>
             </div>
-            <div className='Sec1ImageWrapper'></div>
         </section>
     )
 }

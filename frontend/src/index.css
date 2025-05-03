@@ -75,13 +75,13 @@ b {
 }
 .navPage {
     padding-top: 70px;
-    background-image: url('../../images/lines.png');
+    background-image: url('http://localhost:5000/images/app-images/lines.png');
     background-attachment: fixed;
     background-size: 100% 50%;
     background-color: #eee;
 }
 .bgLines {
-    background-image: url('../../images/lines.png');
+    background-image: url('http://localhost:5000/images/app-images/lines.png');
     background-attachment: fixed;
     background-size: 100% 50%;
     background-color: #eee;
