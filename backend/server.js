@@ -11,6 +11,11 @@ import sec4SocialLinksRoutes from './routes/sec4SocialLinksRoutes.js';
 import pricePageRoutes from './routes/pricePageRoutes.js';
 import intensiveRoutes from './routes/intensiveRoutes.js';
 import aboutImagesRoutes from './routes/aboutImagesRoutes.js';
+import path from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
@@ -27,7 +32,7 @@ app.use('/api/footerMiddle', FooterMiddleRoutes);
 app.use('/api/sec4MediaLinks', sec4SocialLinksRoutes);
 app.use('/api/pricePage', pricePageRoutes);
 app.use('/api/intensive', intensiveRoutes);
-app.use('/about-images', express.static('images/about-images'));
+app.use('/about-images', express.static(path.join(__dirname, 'images', 'about-images')));
 app.use('/api/aboutImages', aboutImagesRoutes);
 
 const PORT = process.env.PORT || 5000;
