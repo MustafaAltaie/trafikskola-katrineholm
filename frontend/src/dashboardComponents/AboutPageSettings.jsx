@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import HeaderSettings from './HeaderSettings';
 import FooterSettings from './FooterSettings';
 import '../styles/aboutPage.css';
 import { useUploadAboutImagesMutation, useReadAboutImagesQuery, useDeleteAboutImagesMutation } from '../features/schoolsApi';
 
 const AboutPage = () => {
+    const buttonRef = useRef(null);
     const [file, setFile] = useState(null);
     const [uploadImage] = useUploadAboutImagesMutation();
     const { data: images = [] } = useReadAboutImagesQuery();
@@ -17,6 +18,7 @@ const AboutPage = () => {
     useEffect(() => {
         if(file) {
             handleUpload();
+            if (buttonRef.current) buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }, [file]);
 
@@ -72,7 +74,7 @@ const AboutPage = () => {
                                 <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
                             </div>
                         ))}
-                        <div className='aboutPageSettingsWrapper'>
+                        <div ref={buttonRef} className='aboutPageSettingsWrapper'>
                             <label className="customFileUpload flexCenter">
                                 <input type="file" onChange={(e) => setFile(e.target.files[0])} />
                             </label>
