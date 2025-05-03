@@ -25,11 +25,13 @@ const Section1 = () => {
     }, [file]);
 
     useEffect(() => {
-        const imageInt = setInterval(() => {
-            setCount(prev => (prev + 1) % imagesLength);
-        }, 5000);
+        if(imagesLength > 0) {
+            const imageInt = setInterval(() => {
+                setCount(prev => (prev + 1) % imagesLength);
+            }, 5000);
 
-        return () => clearInterval(imageInt);
+            return () => clearInterval(imageInt);  
+        }
     }, [imagesLength]);
 
 
@@ -61,8 +63,8 @@ const Section1 = () => {
     return (
         <section className="section1">
             <div className='Sec1ImageWrapper'>
-                {images.map((image, indx) =>
-                    <img key={indx} className={indx === count ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
+                {images?.map((image, indx) =>
+                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
                 <div className="settingsBtn" onClick={() => setMenu(true)}>
                     <div></div>
                     <div></div>

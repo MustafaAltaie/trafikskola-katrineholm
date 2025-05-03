@@ -8,18 +8,20 @@ const Section1 = () => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
+        if(imagesLength > 0) {
             const imageInt = setInterval(() => {
                 setCount(prev => (prev + 1) % imagesLength);
             }, 5000);
-
-            return () => clearInterval(imageInt);
-        }, [imagesLength]);
+    
+            return () => clearInterval(imageInt);  
+        }
+    }, [imagesLength]);
 
     return (
         <section className="section1">
             <div className='Sec1ImageWrapper'>
-                {images.map((image, indx) =>
-                    <img key={indx} className={indx === count ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
+                {images?.map((image, indx) =>
+                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
             </div>
             <div className="sec1DetailsWrapper">
                 <h1>Välkommen till <span>katrineholm</span>-Eskilstuna <span>trafikskolan i katrineholm</span></h1>
