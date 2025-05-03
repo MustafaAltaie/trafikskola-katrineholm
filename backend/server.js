@@ -11,6 +11,7 @@ import sec4SocialLinksRoutes from './routes/sec4SocialLinksRoutes.js';
 import pricePageRoutes from './routes/pricePageRoutes.js';
 import intensiveRoutes from './routes/intensiveRoutes.js';
 import aboutImagesRoutes from './routes/aboutImagesRoutes.js';
+import homeImagesRoutes from './routes/homeImagesRoutes.js';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -34,6 +35,8 @@ app.use('/api/pricePage', pricePageRoutes);
 app.use('/api/intensive', intensiveRoutes);
 app.use('/about-images', express.static(path.join(__dirname, 'images', 'about-images')));
 app.use('/api/aboutImages', aboutImagesRoutes);
+app.use('/home-images', express.static(path.join(__dirname, 'images', 'home-images')));
+app.use('/api/homeImages', homeImagesRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

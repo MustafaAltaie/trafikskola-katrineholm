@@ -11,7 +11,8 @@ export const schoolsApi = createApi({
         'sec4MediaLinks',
         'pricePage',
         'intensive',
-        'aboutImages'
+        'aboutImages',
+        'homeImages'
     ],
     endpoints: (builder) => ({
         // Educations
@@ -131,17 +132,30 @@ export const schoolsApi = createApi({
         }),
         // upload about images
         uploadAboutImages: builder.mutation({
-            query: (formData) => ({ url: '/aboutImages', method: 'POST', body: formData }),
+            query: (formData) => ({ url: 'aboutImages', method: 'POST', body: formData }),
             invalidatesTags: ['aboutImages']
         }),
         readAboutImages: builder.query({
-            query: () => '/aboutImages',
+            query: () => 'aboutImages',
             providesTags: ['aboutImages']
         }),
         deleteAboutImages: builder.mutation({
-            query: (filename) => ({ url: `/aboutImages/${filename}`, method: 'DELETE' }),
+            query: (filename) => ({ url: `aboutImages/${filename}`, method: 'DELETE' }),
             invalidatesTags: ['aboutImages']
         }),
+        // Home images
+        uploadHomeImages: builder.mutation({
+            query: (formData) => ({ url: 'homeImages', method: 'POST', body: formData }),
+            invalidatesTags: ['homeImages']
+        }),
+        readHomeImages: builder.query({
+            query: () => 'homeImages',
+            providesTags: ['homeImages']
+        }),
+        deleteHomeImages: builder.mutation({
+            query: (file) => ({ url: `homeImages/${file}`, method: 'DELETE' }),
+            invalidatesTags: ['homeImages']
+        })
     })
 });
 
@@ -177,8 +191,12 @@ export const {
     useReadIntensiveQuery,
     useUpdateIntensiveMutation,
     useDeleteIntensiveMutation,
-    // Upload images
+    // About page images
     useUploadAboutImagesMutation,
     useReadAboutImagesQuery,
     useDeleteAboutImagesMutation,
+    // Home images
+    useUploadHomeImagesMutation,
+    useReadHomeImagesQuery,
+    useDeleteHomeImagesMutation,
 } = schoolsApi;
