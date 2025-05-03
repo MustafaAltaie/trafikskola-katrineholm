@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import '../styles/PricesPage.css';
+import '../styles/pricesPage.css';
 import Footer from './Footer';
 import Header from './Header';
 

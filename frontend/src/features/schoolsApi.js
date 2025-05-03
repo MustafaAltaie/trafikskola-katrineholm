@@ -11,7 +11,7 @@ export const schoolsApi = createApi({
         'sec4MediaLinks',
         'pricePage',
         'intensive',
-        'upload'
+        'aboutImages'
     ],
     endpoints: (builder) => ({
         // Educations
@@ -129,18 +129,18 @@ export const schoolsApi = createApi({
             query: (id) => ({ url: `intensive/${id}`, method: 'DELETE' }),
             invalidatesTags: ['intensive']
         }),
-        // upload images
-        uploadImage: builder.mutation({
-            query: (formData) => ({ url: '/upload', method: 'POST', body: formData }),
-            invalidatesTags: ['upload']
+        // upload about images
+        uploadAboutImages: builder.mutation({
+            query: (formData) => ({ url: '/aboutImages', method: 'POST', body: formData }),
+            invalidatesTags: ['aboutImages']
         }),
-        readUploadedImages: builder.query({
-            query: () => '/upload',
-            providesTags: ['upload']
+        readAboutImages: builder.query({
+            query: () => '/aboutImages',
+            providesTags: ['aboutImages']
         }),
-        deleteImage: builder.mutation({
-            query: (filename) => ({ url: `/upload/${filename}`, method: 'DELETE' }),
-            invalidatesTags: ['upload']
+        deleteAboutImages: builder.mutation({
+            query: (filename) => ({ url: `/aboutImages/${filename}`, method: 'DELETE' }),
+            invalidatesTags: ['aboutImages']
         }),
     })
 });
@@ -178,7 +178,7 @@ export const {
     useUpdateIntensiveMutation,
     useDeleteIntensiveMutation,
     // Upload images
-    useUploadImageMutation,
-    useReadUploadedImagesQuery,
-    useDeleteImageMutation,
+    useUploadAboutImagesMutation,
+    useReadAboutImagesQuery,
+    useDeleteAboutImagesMutation,
 } = schoolsApi;

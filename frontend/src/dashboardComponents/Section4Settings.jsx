@@ -1,5 +1,5 @@
 import { useEffect, useState, forwardRef, useRef } from 'react';
-import '../styles/Section4.css';
+import '../styles/section4.css';
 import { useSendMessageMutation, useUpdateSec4SocialLinksMutation, useReadSec4SocialLinksQuery } from '../features/schoolsApi';
 
 const Section4 = forwardRef(( props, ref ) => {

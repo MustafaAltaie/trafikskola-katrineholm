@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import '../styles/PricesPage.css';
+import '../styles/pricesPage.css';
 import FooterSettings from './FooterSettings';
 import HeaderSettings from './HeaderSettings';
 import { useCreatePricePageMutation, useReadPricePageQuery, useUpdatePricePageMutation } from '../features/schoolsApi';

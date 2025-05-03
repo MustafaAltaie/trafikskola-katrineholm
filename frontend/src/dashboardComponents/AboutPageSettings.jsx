@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import HeaderSettings from './HeaderSettings';
 import FooterSettings from './FooterSettings';
 import '../styles/aboutPage.css';
-import { useUploadImageMutation, useReadUploadedImagesQuery, useDeleteImageMutation } from '../features/schoolsApi';
+import { useUploadAboutImagesMutation, useReadAboutImagesQuery, useDeleteAboutImagesMutation } from '../features/schoolsApi';
 
 const AboutPage = () => {
     const [file, setFile] = useState(null);
-    const [uploadImage, { isLoading }] = useUploadImageMutation();
-    const { data: images = [] } = useReadUploadedImagesQuery();
-    const [deleteImage] = useDeleteImageMutation();
+    const [uploadImage] = useUploadAboutImagesMutation();
+    const { data: images = [] } = useReadAboutImagesQuery();
+    const [deleteImage] = useDeleteAboutImagesMutation();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -73,11 +73,9 @@ const AboutPage = () => {
                             </div>
                         ))}
                         <div className='aboutPageSettingsWrapper'>
-                            {!file &&
                             <label className="customFileUpload flexCenter">
                                 <input type="file" onChange={(e) => setFile(e.target.files[0])} />
                             </label>
-                            }
                         </div>
                     </div>
                 </div>

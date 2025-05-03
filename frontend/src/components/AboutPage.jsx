@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import '../styles/aboutPage.css';
-import { useReadUploadedImagesQuery } from '../features/schoolsApi';
+import { useReadAboutImagesQuery } from '../features/schoolsApi';
 
 const AboutPage = () => {
-    const { data: images = [] } = useReadUploadedImagesQuery();
+    const { data: images = [] } = useReadAboutImagesQuery();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
