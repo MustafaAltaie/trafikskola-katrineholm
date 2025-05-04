@@ -20,22 +20,27 @@ const Footer = () => {
                     <p>Hitta oss snabbt</p>
                 </div>
 
-                <div className="footerMiddle">
-                    <div className="footerInfo flexColumn">
-                        <p><i className="fa-solid fa-phone-volume"></i>0737025139</p>
-                        <p><i className="fa-solid fa-coins"></i><span>Swish:</span> 123 354 20 65</p>
-                        <p><i className="fa-solid fa-credit-card"></i><span>Bankgiro:</span> 135-5031</p>
-                        <p><i className="fa-solid fa-location-dot"></i>Torshällavägen 39 63344 Eskilstuna</p>
-                        <p><i className="fa-solid fa-car-side"></i><span>Körning:</span> Mån-Fre 08:00-18:00</p>
+                <div className='footerMiddleMainWrapper'>
+                    <div className="footerMiddle">
+                        <div className="footerInfo flexColumn">
+                            <p><i className="fa-solid fa-phone-volume"></i>0737025139</p>
+                            <p><i className="fa-solid fa-coins"></i><span>Swish:</span> 123 354 20 65</p>
+                            <p><i className="fa-solid fa-credit-card"></i><span>Bankgiro:</span> 135-5031</p>
+                            <p><i className="fa-solid fa-location-dot"></i>Torshällavägen 39 63344 Eskilstuna</p>
+                            <p><i className="fa-solid fa-car-side"></i><span>Körning:</span> Mån-Fre 08:00-18:00</p>
+                        </div>
                     </div>
+
                     <div className="footerAbout">
                         <p><span>Katrineholm-Eskilstuna Trafikskola</span> ligger i nära Eskilstuna centrum 9 minuter buss linje 1 vid Busshållplats Munktellsgan och nära Trafikverket förarprov 10 minuter med foten.Vår målsättning är att erbjuda en lugn och trivsam studiemiljö med modern utrustning.</p>
                         <Link to='/om-oss'><p><span style={{ color: '#57d', fontWeight: 'bold' }}>Läs mer om oss ...</span></p></Link>
                     </div>
+
+                    <FooterForm />
                 </div>
 
                 <div className="footerSocial flexColumn">
-                    <p>Följ oss på:</p>
+                    <p><span>Följ oss på:</span></p>
                     <div>
                         {isMiddleLoading && <p>Loading...</p>}
                         <p style={{ pointerEvents: middleLinks?.link1 ? 'all' : 'none' }}><a href={middleLinks?.link1 ? `https://www.instagram.com/${middleLinks?.link1}` : '#'} target='_blank' rel='noopener noreferrer'><i className="fa-brands fa-instagram"></i></a></p>
@@ -44,12 +49,10 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <FooterForm />
-
                 <div className="footerLegal">
-                    <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
-                    <p><a href="/integritetspolicy"><span style={{ color: '#55f', fontWeight: 'bold' }}>Integritetspolicy</span></a> | <a href="/allmanna-villkor"><span style={{ color: '#55f', fontWeight: 'bold' }}>Allmänna villkor</span></a></p>
-                </div>
+                        <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
+                        <p><a href="/integritetspolicy"><span style={{ color: '#55f', fontWeight: 'bold' }}>Integritetspolicy</span></a> | <a href="/allmanna-villkor"><span style={{ color: '#55f', fontWeight: 'bold' }}>Allmänna villkor</span></a></p>
+                    </div>
 
                 <div className="footerDeveloper">
                     <a href="https://www.linkedin.com/in/mustafa-altaie-b35356178" target="_blank">

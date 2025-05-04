@@ -90,3 +90,21 @@
     text-align: center;
     cursor: pointer;
 }
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .pricePageWrapper > div {
+        padding: 30px 100px;
+    }
+    .pricePageDetailsWrapper {
+        gap: 50px;
+        margin-bottom: 30px;
+    }
+    .pricePageCard > div:nth-child(1) {
+        gap: 15px;
+    }
+    .pricePageSettingsMenu {
+        width: 50%;
+        margin-left: auto;
+    }
+}

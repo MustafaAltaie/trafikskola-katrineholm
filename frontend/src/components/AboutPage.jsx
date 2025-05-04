@@ -34,7 +34,7 @@ const AboutPage = () => {
                     <br />
                     <div className="aboutPageImageWrapper">
                         {images.map((url, idx) => (
-                            <div key={idx} onClick={() => handleDelete(url)}>
+                            <div key={idx}>
                                 <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
                             </div>
                         ))}

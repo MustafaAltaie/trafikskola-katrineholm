@@ -8,6 +8,11 @@
 .section2 i {
     margin-right: 10px;
 }
+.section2 a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+}
 .section2 > div > h1 {
     padding: 10px;
     text-align: center;
@@ -27,4 +32,19 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px;
+}
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .section2 > div {
+        background: #ffffffee;
+    }
+    .sec2Contact {
+        padding: 20px 50px;
+    }
+    .sec2Ads {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }

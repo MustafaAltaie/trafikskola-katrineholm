@@ -117,6 +117,66 @@ button.styledInput1 {
     overflow: hidden;
     transition: 0.6s ease-in-out;
 }
+.footerMiddleSettings {
+    margin-top: 0;
+    width: 100%;
+    gap: 10px !important;
+}
 .footerTopSettingsOn, .footerMiddleSettingsOn {
     max-height: 500px;
+}
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .footerMainWrapper {
+        padding: 10px 0;
+    }
+    .footerMainWrapper p {
+        font-family: var(--thinBendFont);
+    }
+    .footerInfo,
+    .footerAbout,
+    .footerSocial,
+    .footerTop,
+    .footerLegal,
+    .footerContact {
+        gap: 20px;
+        padding: 30px 0;
+        border-bottom: none;
+    }
+    .footerSocial,
+    .footerLegal {
+        gap: 20px;
+        padding: 30px 0;
+        border-bottom: solid 0.5px #ffffff33;
+    }
+    .footerMiddleMainWrapper {
+        display: flex;
+        justify-content: space-between;
+        border-top: solid 0.5px #ffffff33;
+        border-bottom: solid 0.5px #ffffff33;
+        padding: 0 30px;
+    }
+    .footerMiddleMainWrapper > div {
+        width: calc(100%/3);
+        border-right: solid 0.5px #ffffff33;
+        padding: 20px;
+    }
+    .footerAbout {
+        line-height: 2.2rem;
+    }
+    .footerMiddleMainWrapper > div:nth-child(3) {
+        border-right: none;
+    }
+    .footerContact {
+        gap: 30px;
+    }
+    .footerContact > p {
+        padding-top: 7px;
+    }
+    .footerTopSettings, .footerMiddleSettings {
+        width: 30%;
+        margin: -50px 20px 40px auto;
+    }
 }

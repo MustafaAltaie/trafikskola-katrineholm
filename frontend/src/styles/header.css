@@ -30,11 +30,13 @@ header > nav {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    max-height: 0;
     transition: max-height 0.5s ease-in-out;
 }
 .navOpened {
     max-height: 700px;
+}
+.navClosed {
+    max-height: 0;
 }
 header > nav > ul {
     display: flex;
@@ -62,4 +64,37 @@ header > nav > ul > li > a {
 }
 .active {
     background: rgba(0, 100, 182, 0.567);
+}
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .navToggleButton {
+        display: none;
+    }
+    .navClosed {
+        max-height: unset;
+    }
+    header {
+        display: flex;
+        border-bottom: solid 0.5px #ffffff4b;
+    }
+    header > div{
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+    header > nav > ul {
+        flex-direction: row;
+        justify-content: flex-end;
+        background: var(--bgDark);
+        border-bottom: none;
+    }
+    header > nav > ul > li {
+        width: fit-content;
+    }
+    header > nav > ul > li > a {
+        transition: 0.1s;
+    }
+    header > nav > ul > li > a:hover {
+        padding: 18px 20px 22px 20px;
+    }
 }

@@ -75,3 +75,32 @@
 .intensivePageSettings > ul > li > b {
     cursor: pointer;
 }
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .intensivePageWrapper > div {
+        padding: 30px 100px;
+        gap: 30px;
+    }
+    .intensivePageWrapper button {
+        border: none;
+        width: 40%;
+        margin: 10px auto 0 auto;
+    }
+    .intensivePageEducationWrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .intensivePageEducationWrapper > div {
+        width: calc(100%/2 - 25px);
+    }
+    .intensivePageSettings {
+        width: 50%;
+        margin: 20px auto;
+        gap: 20px;
+    }
+    .intensivePageSettings > ul, .intensivePageSettings > div {
+        gap: 20px;
+    }
+}

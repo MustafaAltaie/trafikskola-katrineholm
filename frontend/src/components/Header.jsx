@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/header.css';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -6,6 +6,18 @@ import { useLocation } from 'react-router-dom';
 const Header = ({ scrollToSec3, scrollToSec4 }) => {
     const [toggleBtn, setToggleBtn] = useState(false);
     const location = useLocation();
+
+    useEffect(() => {
+        const handleResize = () => {
+            if(window.innerWidth >= 1024) {
+                setToggleBtn(false);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <header>
@@ -19,7 +31,7 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
                     <div style={{ transform: `translateY(${toggleBtn ? '-400%' : '0'}) rotate(${ toggleBtn ? '-45' : '0' }deg)` }}></div>
                 </div>
             </div>
-            <nav className={toggleBtn ? 'navOpened' : ''}>
+            <nav className={toggleBtn ? 'navOpened' : 'navClosed'}>
                 <ul>
                     <li><Link to={'/'} className={location.pathname === '/' ? 'active' : ''}>Hem</Link></li>
                     <li><Link to={'/priser'} className={location.pathname === '/priser' ? 'active' : ''}>Priser</Link></li>

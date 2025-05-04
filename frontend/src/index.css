@@ -114,3 +114,18 @@ b {
     border-radius: 50%;
     background: #fff;
 }
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    p {
+        font-family: var(--formalFont);
+    }
+    .navPage {
+        padding-top: 60px;
+        background-size: 100% 100%;
+    }
+    .bgLines {
+        background-size: 100% 100%;
+    }
+}

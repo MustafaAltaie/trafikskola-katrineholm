@@ -1,8 +1,8 @@
 .riskPageWrapper > div {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     padding: 30px;
-    margin-bottom: 10px;
     border-top: solid 0.5px #00000044;
     border-bottom: solid 0.5px #00000044;
     background-color: #ffffffbb;
@@ -37,8 +37,19 @@
 }
 .riskPageWrapper > div p {
     font-family: var(--formalFont);
-    color: #999;
+    color: #555;
 }
 .riskPageWrapper > div h2 {
     font-family: var(--formalFont);
+}
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .riskPageWrapper > div {
+        padding: 30px 100px;
+        gap: 30px;
+    }
+    .riskImageWrapper > img {
+        height: 250px;
+    }
 }
