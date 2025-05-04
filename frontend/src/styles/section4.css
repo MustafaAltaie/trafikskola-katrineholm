@@ -7,6 +7,10 @@
     background-color: #000;
     color: #fff;
 }
+.section4 > h1 {
+    padding-top: 20px;
+    text-align: center;
+}
 .sec4MainWrapper {
     padding: 30px 50px;
     background-color: #22222255;
@@ -19,10 +23,6 @@
 }
 .sec4Contact i {
     margin-right: 10px;
-}
-.sec4MainWrapper > h1 {
-    margin-bottom: 20px;
-    text-align: center;
 }
 .sec4Form {
     padding: 40px;
@@ -37,6 +37,7 @@
     -webkit-backdrop-filter: blur(7px);
     background-color: #00000033;
     border-radius: 20px;
+    margin-top: 20px;
 }
 .sec4Form > div {
     width: 100%;
@@ -104,4 +105,19 @@
 }
 .sec4SettingsOn {
     max-height: 250px;
+}
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .section4 {
+        background-size: 70% 100%;
+    }
+    .sec4MainWrapper h1 {
+        text-align: center;
+    }
+    .sec4Form {
+        width: 40%;
+        margin: 20px auto 0 auto;
+    }
 }

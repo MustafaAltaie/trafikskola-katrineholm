@@ -128,4 +128,7 @@ b {
     .bgLines {
         background-size: 100% 100%;
     }
+    .styledInput1 {
+        padding: 5px 10px;
+    }
 }

@@ -145,14 +145,18 @@
 
 /* Laptop scale */
 @media (min-width: 1024px) {
+    .section3  > div {
+        background-size: 70% 100%;
+        background-repeat: no-repeat;
+    }
     .sec3CardWrapper {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 70px;
-        padding: 70px;
+        gap: 40px;
+        padding: 40px;
     }
     .sec3Card {
-        width: calc(100%/3 - 140px/3);
+        width: calc(100%/3 - 80px/3);
     }
     .sec3CardInnerWrapper > div {
         padding: 10px;

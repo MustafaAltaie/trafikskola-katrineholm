@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import '../styles/section3.css';
 import { useCreateEducationMutation, useReadEducationsQuery, useUpdateEducationMutation } from '../features/schoolsApi';
 import Section3SettingsCard from './Section3SettingsCard';
@@ -20,6 +20,7 @@ const Section3 = () => {
     const [addedOption, setAddedOption] = useState('');
     const [thisOption, setThisOption] = useState('');
     const [deletedOption, setDeletedOption] = useState('');
+    const didMount = useRef(false);
 
     useEffect(() => {
         if(form) {
@@ -33,6 +34,13 @@ const Section3 = () => {
     }, [form, list]);
 
     useEffect(() => {
+        setTimeout(() => {
+            didMount.current = true;
+        }, 1000);
+    },[])
+
+    useEffect(() => {
+        if(!didMount.current) return;
         if(listRef.current) listRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }, [educations]);
 

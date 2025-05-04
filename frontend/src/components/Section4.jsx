@@ -74,8 +74,8 @@ const Section4 = forwardRef(( props, ref ) => {
 
     return (
         <section className='section4' ref={ref}>
+            <h1>Kontakta oss</h1>
             <div className="sec4MainWrapper">
-                <h1>Kontakta oss</h1>
                 <div className='sec4Contact flexColumn'>
                     <p><i className="fa-solid fa-phone"></i>0737025139</p>
                     <p><i className="fa-solid fa-envelope"></i>mohanad@gmail.com</p>
@@ -103,7 +103,6 @@ const Section4 = forwardRef(( props, ref ) => {
                 <div className='sec4SocialMediaWrapper'>
                     <h1>Du kan också kontakta oss på sociala medier.</h1>
                     <div className='ec4SocialMedia'>
-                        <h2 className='footerSettingsButton' onClick={() => setMenu(!menu)} style={{ transform: 'translateY(-100%)' }}>🖋️</h2>
                         {isLoading && <p>Loading...</p>}
                         {icons.map(icon => (
                             <div key={icon.key} style={{ pointerEvents: links[icon.key] ? 'all' : 'none' }}>

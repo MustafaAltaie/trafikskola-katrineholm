@@ -130,7 +130,7 @@ button.styledInput1 {
 /* Laptop scale */
 @media (min-width: 1024px) {
     .footerMainWrapper {
-        padding: 10px 0;
+        padding: 0 0 5px 0;
     }
     .footerMainWrapper p {
         font-family: var(--thinBendFont);
@@ -141,19 +141,16 @@ button.styledInput1 {
     .footerTop,
     .footerLegal,
     .footerContact {
-        gap: 20px;
-        padding: 30px 0;
+        gap: 10px;
+        padding: 20px 0;
         border-bottom: none;
     }
     .footerSocial,
     .footerLegal {
-        gap: 20px;
-        padding: 30px 0;
         border-bottom: solid 0.5px #ffffff33;
     }
     .footerMiddleMainWrapper {
         display: flex;
-        justify-content: space-between;
         border-top: solid 0.5px #ffffff33;
         border-bottom: solid 0.5px #ffffff33;
         padding: 0 30px;
@@ -164,19 +161,16 @@ button.styledInput1 {
         padding: 20px;
     }
     .footerAbout {
-        line-height: 2.2rem;
+        line-height: 1.8rem;
     }
     .footerMiddleMainWrapper > div:nth-child(3) {
         border-right: none;
     }
-    .footerContact {
-        gap: 30px;
-    }
-    .footerContact > p {
-        padding-top: 7px;
+    .footerContact > p, .footerInfo {
+        padding-top: 5px;
     }
     .footerTopSettings, .footerMiddleSettings {
         width: 30%;
-        margin: -50px 20px 40px auto;
+        margin: -50px 50px 40px auto;
     }
 }
