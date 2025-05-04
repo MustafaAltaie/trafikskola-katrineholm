@@ -9,7 +9,7 @@
     -webkit-backdrop-filter: blur(5px);
     text-align: center;
 }
-.section3  > div {
+.section3 > div {
     background-image: url("http://localhost:5000/images/app-images/car1.webp");
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -29,11 +29,15 @@
     background: #ffffff77;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
     border: solid 0.5px #00000055;
 }
 .sec3Card * {
     font-family: var(--formalFont);
+}
+.sec3CardPrice {
+    font-weight: bold;
+    color: #158acd;
 }
 .sec3Card > h3 {
     width: 100%;
@@ -44,7 +48,7 @@
 }
 .sec3Card > i {
     position: absolute;
-    transform: translate(-27%, 27%) rotate(-45deg);
+    transform: translate(-30%, 30%) rotate(-45deg);
     background: #2e9837;
     padding: 3px 20px 7px 20px;
     color: #fff;
@@ -52,11 +56,9 @@
 }
 .sec3CardInnerWrapper {
     align-items: flex-start;
-    gap: 5px;
     width: 100%;
 }
 .sec3CardInnerWrapper > div {
-    border-bottom: var(--thinDarkBorder);
     width: 100%;
     align-items: center;
     padding: 10px 0;
@@ -64,8 +66,13 @@
 .sec3CardInnerWrapper > ul {
     width: 100%;
     list-style: none;
-    padding: 10px 10px 20px 10px;
-    gap: 5px;
+}
+.sec3CardInnerWrapper > ul > li {
+    padding: 10px;
+    border-top: var(--thinDarkBorder);
+}
+.sec3CardInnerWrapper > ul > li:nth-of-type(odd) {
+    background: #eeeeee;
 }
 
 /* Settings */
@@ -161,9 +168,8 @@
     .sec3CardInnerWrapper > div {
         padding: 10px;
     }
-    .sec3CardInnerWrapper > ul {
-        gap: 10px;
-        padding: 10px 20px 20px 20px;
+    .sec3CardInnerWrapper > ul > li {
+        padding: 10px;
     }
     .addEducationForm {
         align-items: center;

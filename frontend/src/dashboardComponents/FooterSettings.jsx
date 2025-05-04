@@ -124,7 +124,7 @@ const Footer = () => {
 
                     <div className="footerAbout">
                         <p><span>Katrineholm-Eskilstuna Trafikskola</span> ligger i nära Eskilstuna centrum 9 minuter buss linje 1 vid Busshållplats Munktellsgan och nära Trafikverket förarprov 10 minuter med foten.Vår målsättning är att erbjuda en lugn och trivsam studiemiljö med modern utrustning.</p>
-                        <Link to='/om-oss'><p><span style={{ color: '#57d', fontWeight: 'bold' }}>Läs mer om oss ...</span></p></Link>
+                        <Link to='/dashboard-secret-9xJq_v7Z-UltimateAccess88/om-ossSettings'><p><span style={{ color: '#57d', fontWeight: 'bold' }}>Läs mer om oss ...</span></p></Link>
                     </div>
 
                     <FooterForm />
@@ -149,7 +149,7 @@ const Footer = () => {
 
                 <div className="footerLegal">
                     <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
-                    <p><a href="/integritetspolicy"><span style={{ color: '#55f', fontWeight: 'bold' }}>Integritetspolicy</span></a> | <a href="/allmanna-villkor"><span style={{ color: '#55f', fontWeight: 'bold' }}>Allmänna villkor</span></a></p>
+                    <p><span style={{ color: '#55f', fontWeight: 'bold' }}>Integritetspolicy</span> | <span style={{ color: '#55f', fontWeight: 'bold' }}>Allmänna villkor</span></p>
                 </div>
 
                 <div className="footerDeveloper">

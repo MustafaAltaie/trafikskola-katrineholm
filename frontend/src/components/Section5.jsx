@@ -23,6 +23,13 @@ const Section5 = () => {
     }, [reviews]);
 
     useEffect(() => {
+        if(rating !== '') {
+            if(rating > 5) setRating(5);
+            else if(rating < 1) setRating(1);
+        }
+    }, [rating]);
+
+    useEffect(() => {
         if (form) {
             if (formRef.current) {
                 formRef.current.style.display = 'flex';
@@ -96,6 +103,7 @@ const Section5 = () => {
                                 {review.message ?
                                 <p>{review.message}</p> :
                                 <p style={{ color: '#00000055' }}>Eleven lämnade inget meddelande.</p>}
+                                <p style={{ color: '#a70', fontSize: '14px', fontFamily: 'Dosis' }}>{new Date(review.createdAt).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}
@@ -124,7 +132,7 @@ const Section5 = () => {
                 <button className='glassMorphism' onClick={e => {handleCreateReview(); e.preventDefault()}}>Skicka</button>
             </form>
             {!form &&
-            <button className='glassMorphism' onClick={() => setForm(true)}><h3>Dela gärna din upplevelse med oss!</h3></button>}
+            <button className='sec5SubbmitButton glassMorphism' onClick={() => setForm(true)}><h3>Dela gärna din upplevelse med oss!</h3></button>}
         </section>
     )}
 }

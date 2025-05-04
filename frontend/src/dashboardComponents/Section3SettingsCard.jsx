@@ -17,10 +17,10 @@ const Section3SettingsCard = ({ education, handlePrepareUpdate }) => {
             </div>
             {education.discount > 0 &&
             <i>Spara {education.discount}:-</i>}
-            <h3>{education.title}</h3>
+            <h3 dangerouslySetInnerHTML={{ __html: education.title.replace('/', '<br/>') }} />
             <div className='sec3CardInnerWrapper flexColumn'>
                 <div className='flexColumn'>
-                    <h1>{education.price}:-</h1>
+                    <h1 className="sec3CardPrice">{education.price}:-</h1>
                     {education.discount > 0 &&
                     <p>Du sparar {education.discount}:-</p>}
                 </div>

@@ -62,7 +62,7 @@
 }
 .sec5ColumnsWrapper {
     max-height: 400px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     scrollbar-width: none;
     background-image: url('http://localhost:5000/images/app-images/lines.png');
     background-attachment: fixed;
@@ -86,6 +86,9 @@
     border: solid 0.5px #ffffff;
     border-top: solid 1px #ffffff;
     border-radius: 10px;
+}
+.sec5Comment > h1 {
+    cursor: no-drop;
 }
 .sec5CommentPart1 {
     min-width: 40px;
@@ -116,4 +119,25 @@
 .showsed5Form {
     transform: translateX(0);
     opacity: 1;
+}
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .sec5ColumnsWrapper {
+        max-height: 300px;
+    }
+    .sec5Column {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .sec5Comment {
+        width: calc(100%/2 - 10px/2);
+    }
+    .sec5SubbmitButton {
+        width: fit-content;
+        padding: 20px 50px;
+        margin: 0 auto;
+    }
 }

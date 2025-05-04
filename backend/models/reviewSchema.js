@@ -5,7 +5,7 @@ const newReview = new mongoose.Schema ({
     age: { type: Number },
     message: { type: String },
     rating: { type: Number, required: true }
-});
+}, { timestamps: true });
 
 const Review = mongoose.model('reviews', newReview);
 

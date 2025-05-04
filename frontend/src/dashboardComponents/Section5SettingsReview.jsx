@@ -23,6 +23,7 @@ const Section5SettingsReview = ({ review }) => {
                 {review.message ?
                 <p>{review.message}</p> :
                 <p style={{ color: '#00000055' }}>Eleven lämnade inget meddelande.</p>}
+                <p style={{ color: '#a70', fontSize: '14px', fontFamily: 'Dosis' }}>{new Date(review.createdAt).toLocaleString()}</p>
             </div>
             <h1 onClick={handleDeleteReview}>🗑️</h1>
         </div>
