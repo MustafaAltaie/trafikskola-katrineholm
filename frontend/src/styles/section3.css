@@ -79,8 +79,14 @@
 }
 .addEducationForm {
     background-color: #eeeeeedd;
-    padding: 10px 30px 30px;
+    padding: 0 30px;
     gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.addEducationFormOpened {
+    padding-bottom: 30px;
 }
 .addEducationForm input, .addEducationForm textarea, .addEducationForm button {
     padding: 10px;
@@ -101,8 +107,24 @@
     background: #ffffff99;
     padding: 10px;
     border-radius: 10px;
-    border: solid 0.7px #f00;
+    border: dashed 0.7px #000;
     cursor: no-drop;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+.sec3SettingsOption {
+    width: 100%;
+}
+.sec3NewSettingsOption {
+    width: 0;
+}
+.sec3SettingsThisOption {
+    transform: scale(1.15);
+}
+.sec3SettingsDeletedOption {
+    width: 0;
 }
 .addEducationForm button {
     background: #a2ddff;

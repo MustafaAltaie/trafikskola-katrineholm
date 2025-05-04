@@ -17,12 +17,20 @@ const Section3 = () => {
     const [updateEducation] = useUpdateEducationMutation();
     const { data: educations, isLoading } = useReadEducationsQuery();
     const listRef = useRef(null);
+    const [addedOption, setAddedOption] = useState('');
+    const [thisOption, setThisOption] = useState('');
+    const [deletedOption, setDeletedOption] = useState('');
 
     useEffect(() => {
-        if(form && formRef.current) {
-            formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if(form) {
+            if(formRef.current) {
+                formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                formRef.current.style.maxHeight = formRef.current.scrollHeight + 'px';
+            }
+        } else if(formRef.current) {
+            formRef.current.style.maxHeight = '0px';
         }
-    }, [form]);
+    }, [form, list]);
 
     useEffect(() => {
         if(listRef.current) listRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -31,17 +39,33 @@ const Section3 = () => {
     if(isLoading) return <p>Loading...</p>
 
     const handleAddToList = () => {
-        if(!list.includes(option) && option.trim()) {
-            setList(prev => [...prev, option]);
-            setOption('');
-            optionRef.current.focus();
+        const trimmedOption = option.trim();
+        if(!trimmedOption) return;
+        const isExistedOption = list.find(option => option === trimmedOption);
+        if(isExistedOption) {
+            setThisOption(trimmedOption);
+            setTimeout(() => {
+                setThisOption('');
+            }, 200);
+            return;
         }
+        setAddedOption(trimmedOption);
+        setList(prev => [...prev, option]);
+        optionRef.current.focus();
+        setOption('');
+        setTimeout(() => {
+            setAddedOption('');
+        });
     }
 
     const handleRemoveOption = (option) => {
-        if (confirm('Delete option ?')) {
+        const isConfirmed = confirm('Delete option ?');
+        if(!isConfirmed) return;
+        setDeletedOption(option);
+        setTimeout(() => {
             setList(list.filter(o => o !== option));
-        }
+            setDeletedOption('');
+        }, 200);
     }
 
     const handleCreateEducation = () => {
@@ -90,11 +114,8 @@ const Section3 = () => {
                     <Section3SettingsCard key={education._id} education={education} handlePrepareUpdate={handlePrepareUpdate} />
                     ))}
                 </div>
-                {!form &&
-                <h1 className='addEducationButton' onClick={() => setForm(true)}>+</h1>}
-                {form &&
-                <div ref={formRef} className="addEducationForm flexColumn">
-                    <h1 style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => {setForm(false); clearFields()}}>X</h1>
+                <h1 className='addEducationButton' onClick={() => setForm(!form)}>{form ? 'x' : '+'}</h1>
+                <div ref={formRef} className={form ? 'addEducationForm flexColumn addEducationFormOpened' : 'addEducationForm flexColumn'}>
                     <input type="text" placeholder='Titel' value={title} onChange={e => setTitle(e.target.value)} />
                     <input type="number" placeholder='Pris' value={price} onChange={e => setPrice(e.target.value)} />
                     <input type="number" placeholder='Rabatt' value={discount} onChange={e => setDiscount(e.target.value)} />
@@ -103,10 +124,23 @@ const Section3 = () => {
                         <button onClick={handleAddToList}>Lägg till</button>
                     </div>
                     <ul className='flexColumn'>
-                        {list.map(o => <li key={o} onClick={() => handleRemoveOption(o)}>- {o}</li>)}
+                        {list.map(option =>
+                            <li
+                                key={option}
+                                className={
+                                    `
+                                        sec3SettingsOption
+                                        ${addedOption === option ? 'sec3NewSettingsOption' : ''}
+                                        ${thisOption === option ? 'sec3SettingsThisOption' : ''}
+                                        ${deletedOption === option ? 'sec3SettingsDeletedOption' : ''}
+                                    `
+                                }
+                            >
+                                - {option}<p onClick={() => handleRemoveOption(option)}>🗑️</p>
+                            </li>)}
                     </ul>
                     <button onClick={handleCreateEducation}>{id ? 'Uppdatera' : 'Spara'}</button>
-                </div>}
+                </div>
             </div>
         </section>
     )
