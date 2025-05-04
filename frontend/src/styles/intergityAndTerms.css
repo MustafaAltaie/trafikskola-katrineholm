@@ -1,0 +1,10 @@
+.integrityWrapper, .termsWrapper {
+    padding: 100px 30px 30px;
+}
+.integrityWrapper *, .termsWrapper * {
+    font-family: var(--formalFont);
+    line-height: 2rem;
+}
+.integrityWrapper h1, .termsWrapper h1 {
+    margin-bottom: 20px;
+}

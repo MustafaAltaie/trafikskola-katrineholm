@@ -51,7 +51,7 @@ const Footer = () => {
 
                 <div className="footerLegal">
                         <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
-                        <p><span style={{ color: '#55f', fontWeight: 'bold' }}>Integritetspolicy</span> | <span style={{ color: '#55f', fontWeight: 'bold' }}>Allmänna villkor</span></p>
+                        <p><span style={{ color: '#55f', fontWeight: 'bold' }}><Link to='/integritetspolicy' style={{ fontWeight: 'inherit' }}>Integritetspolicy</Link></span> | <span style={{ color: '#55f', fontWeight: 'bold' }}><Link to='/villkor' style={{ fontWeight: 'inherit' }}>Allmänna villkor</Link></span></p>
                     </div>
 
                 <div className="footerDeveloper">
