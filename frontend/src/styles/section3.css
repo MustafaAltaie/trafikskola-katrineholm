@@ -1,6 +1,5 @@
 .section3 {
     padding-top: 50px;
-    background-color: var(--transBack);
 }
 .section3 > h1 {
     background-color: #0079e39f;
@@ -103,6 +102,7 @@
     padding: 10px;
     border-radius: 10px;
     border: solid 0.7px #f00;
+    cursor: no-drop;
 }
 .addEducationForm button {
     background: #a2ddff;
@@ -118,4 +118,37 @@
 .sec3SettingsCardHeader > p {
     padding: 10px;
     cursor: pointer;
+}
+
+
+/* Laptop scale */
+@media (min-width: 1024px) {
+    .sec3CardWrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 70px;
+        padding: 70px;
+    }
+    .sec3Card {
+        width: calc(100%/3 - 140px/3);
+    }
+    .sec3CardInnerWrapper > div {
+        padding: 10px;
+    }
+    .sec3CardInnerWrapper > ul {
+        gap: 10px;
+        padding: 10px 20px 20px 20px;
+    }
+    .addEducationForm {
+        align-items: center;
+    }
+    .addEducationForm input, .addEducationForm textarea, .addEducationForm button {
+        width: 50%;
+    }
+    .addEducationForm > div {
+        width: 50%;
+    }
+    .addEducationForm ul {
+        width: 50%;
+    }
 }

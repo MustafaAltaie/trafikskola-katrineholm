@@ -16,12 +16,17 @@ const Section3 = () => {
     const [createEducation] = useCreateEducationMutation();
     const [updateEducation] = useUpdateEducationMutation();
     const { data: educations, isLoading } = useReadEducationsQuery();
+    const listRef = useRef(null);
 
     useEffect(() => {
         if(form && formRef.current) {
             formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }, [form]);
+
+    useEffect(() => {
+        if(listRef.current) listRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, [educations]);
 
     if(isLoading) return <p>Loading...</p>
 
@@ -79,7 +84,7 @@ const Section3 = () => {
         <section className="section3" style={{ paddingTop: '70px' }}>
             <h1>Våra Utbildningar</h1>
             <div>
-                <div className="sec3CardWrapper">
+                <div ref={listRef} className="sec3CardWrapper">
                     {/* Card */}
                     {educations?.map(education => (
                     <Section3SettingsCard key={education._id} education={education} handlePrepareUpdate={handlePrepareUpdate} />
