@@ -135,6 +135,13 @@
     .sec5Comment {
         width: calc(100%/2 - 10px/2);
     }
+    .section5 > form {
+        width: 40%;
+        margin: 0 auto;
+    }
+    .section5 > form > h3 {
+        cursor: pointer;
+    }
     .sec5SubbmitButton {
         width: fit-content;
         padding: 20px 50px;

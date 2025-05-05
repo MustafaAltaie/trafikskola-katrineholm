@@ -14,7 +14,6 @@ const Footer = () => {
     const [updateFooterMiddleLinks] = useUpdateFooterMiddleLinksMutation();
     const { data: topLinks, isLoading } = useReadFooterTopLinksQuery();
     const { data: middleLinks, isMiddleLoading } = useReadFooterMiddleLinksQuery();
-
     const [topMenu, setTopMenu] = useState(false);
     const [footerTop, setFooterTop] = useState({
         mobile: '',
@@ -27,6 +26,8 @@ const Footer = () => {
         link2: '',
         link3: ''
     });
+    const [integrity, setIntegrity] = useState(false);
+    const [terms, setTerms] = useState(false);
 
     useEffect(() => {
         if(!topLinks) return;
@@ -149,11 +150,29 @@ const Footer = () => {
 
                 <div className="footerLegal">
                     <p>© 2025 Trafikskola <span>Mohanad-Nasri/Katrineholm</span>-Trafikskola. Alla rättigheter förbehållna.</p>
-                    <p><span style={{ color: '#55f', fontWeight: 'bold' }}><Link to='/integritetspolicy' style={{ fontWeight: 'inherit' }}>Integritetspolicy</Link></span> | <span style={{ color: '#55f', fontWeight: 'bold' }}><Link to='/villkor' style={{ fontWeight: 'inherit' }}>Allmänna villkor</Link></span></p>
+                    <p>
+                        <span style={{ color: '#55f', fontWeight: 'bold', cursor: 'pointer', userSelect: 'none', marginRight: '10px' }} onClick={() => setIntegrity(!integrity)}>
+                            Integritetspolicy
+                        </span>
+                        |
+                        <span style={{ color: '#55f', fontWeight: 'bold', cursor: 'pointer', userSelect: 'none', marginLeft: '10px' }} onClick={() => setTerms(!terms)}>
+                            Allmänna villkor
+                        </span>
+                    </p>
+                    {integrity &&
+                    <div className='integritySettingsWrapper flexColumn gap5'>
+                        <textarea className='integrityTextarea styledInput1'></textarea>
+                        <button className='styledInput1'>Spara</button>
+                    </div>}
+                    {terms &&
+                    <div className='termsSettingsWrapper flexColumn gap5'>
+                        <textarea className='termsTextarea styledInput1'></textarea>
+                        <button className='styledInput1'>Spara</button>
+                    </div>}
                 </div>
 
                 <div className="footerDeveloper">
-                    <a href="https://www.linkedin.com/in/mustafa-altaie-b35356178" target="_blank">
+                    <a href="https://www.linkedin.com/in/mustafa-altaie-b35356178" target="_blank" rel='noopener noreferrer'>
                         <p>Webbutveckling av Mustafa Altaie | Fullstack Developer</p>
                     </a>
                 </div>

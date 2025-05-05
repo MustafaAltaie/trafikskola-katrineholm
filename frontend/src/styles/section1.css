@@ -36,14 +36,10 @@
 }
 .sec1DetailsWrapper > h1 {
     background: #000000ae;
-    color: #0af;
+    color: rgb(255, 255, 255);
     padding: 10px;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-}
-.sec1DetailsWrapper > h1 > span {
-    color: var(--textDark);
-    text-shadow: 0 0 10px #000000;
 }
 .sec1DetailsWrapper > p {
     background: #eeeeeeb1;

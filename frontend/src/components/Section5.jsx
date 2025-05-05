@@ -103,7 +103,7 @@ const Section5 = () => {
                                 {review.message ?
                                 <p>{review.message}</p> :
                                 <p style={{ color: '#00000055' }}>Eleven lämnade inget meddelande.</p>}
-                                <p style={{ color: '#a70', fontSize: '14px', fontFamily: 'Dosis' }}>{new Date(review.createdAt).toLocaleString()}</p>
+                                <p style={{ color: '#aa7700aa', fontSize: '14px', fontFamily: 'Dosis' }}>{new Date(review.createdAt).toLocaleString()}</p>
                             </div>
                         </div>
                     ))}

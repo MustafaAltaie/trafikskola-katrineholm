@@ -26,7 +26,9 @@ const IntensivePage = () => {
                     <b>För att börja en intensivkurs krävs det att man klarar av olika utbildningsnivåer enligt trafikskolans undervisningsplan, som är godkänd av Transportstyrelse. Därför måste man först göra en testlektion (körtest) med en av våra trafiklärare.</b>
                     <p>Våra elever som går på intensivkurser skall vara väl förbereda inför körprovet och för att klara av att alla möjliga situationer i framtiden. Det är vårt mål!</p>
                     <hr />
-                    <button><h3>BOKA HÄR</h3></button>
+                    <button onClick={() => {
+                        window.open('https://korkortsjakten.se/trafikskolor/eskilstuna/eskilstuna-trafikskola-1475', '_blank', 'noopener,noreferrer');
+                    }} style={{ fontSize: '1.3rem' }}>BOKA HÄR</button>
                     <hr />
                     {intensiveCards?.length > 0 &&
                     <div className="intensivePageEducationWrapper flexColumn">

@@ -24,7 +24,7 @@ const Section1 = () => {
                     <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
             </div>
             <div className="sec1DetailsWrapper">
-                <h1>Välkommen till <span>katrineholm</span>-Eskilstuna <span>trafikskolan i katrineholm</span></h1>
+                <h1>Välkommen till katrineholm-Eskilstuna trafikskolan i katrineholm</h1>
                 <p>Skaffa ditt körkort snabbt och smidigt hos oss. Erfaren lärare, flexibla tider och personligt stöd hela vägen.</p>
             </div>
         </section>
