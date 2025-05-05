@@ -4,9 +4,12 @@
 .integrityWrapper *, .termsWrapper * {
     font-family: var(--formalFont);
     line-height: 2rem;
+    font-family: sans-serif;
 }
 .integrityWrapper h1, .termsWrapper h1 {
     margin-bottom: 20px;
+    color: #07a;
+    font-weight: bold;
 }
 
 /* Settings */

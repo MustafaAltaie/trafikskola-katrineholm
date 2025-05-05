@@ -1,6 +1,6 @@
 
 
-const intensivePageSettingsCard = ({ education, handlePrepareUpdate, handleDeleteIntensive }) => {
+const IntensivePageSettingsCard = ({ education, handlePrepareUpdate, handleDeleteIntensive }) => {
     return (
         <div className="sec3Card flexColumn">
             <div className="sec3SettingsCardHeader">
@@ -24,4 +24,4 @@ const intensivePageSettingsCard = ({ education, handlePrepareUpdate, handleDelet
     )
 }
 
-export default intensivePageSettingsCard;
+export default IntensivePageSettingsCard;
