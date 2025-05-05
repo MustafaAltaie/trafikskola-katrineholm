@@ -12,6 +12,7 @@ import pricePageRoutes from './routes/pricePageRoutes.js';
 import intensiveRoutes from './routes/intensiveRoutes.js';
 import aboutImagesRoutes from './routes/aboutImagesRoutes.js';
 import homeImagesRoutes from './routes/homeImagesRoutes.js';
+import integrityAndTerm from './routes/integrityAndTermRoutes.js';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -38,6 +39,7 @@ app.use('/api/aboutImages', aboutImagesRoutes);
 app.use('/home-images', express.static(path.join(__dirname, 'images', 'home-images')));
 app.use('/api/homeImages', homeImagesRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/integrityAndTerm', integrityAndTerm);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -12,7 +12,8 @@ export const schoolsApi = createApi({
         'pricePage',
         'intensive',
         'aboutImages',
-        'homeImages'
+        'homeImages',
+        'integrityAndTerm'
     ],
     endpoints: (builder) => ({
         // Educations
@@ -155,7 +156,16 @@ export const schoolsApi = createApi({
         deleteHomeImages: builder.mutation({
             query: (file) => ({ url: `homeImages/${file}`, method: 'DELETE' }),
             invalidatesTags: ['homeImages']
-        })
+        }),
+        // Integrity And Terms
+        readIntegrityTerm: builder.query({
+            query: () => 'integrityAndTerm',
+            providesTags: ['integrityAndTerm']
+        }),
+        updateIntegrityTerm: builder.mutation({
+            query: (data) => ({ url: 'integrityAndTerm', method: 'PUT', body: data }),
+            invalidatesTags: ['integrityAndTerm']
+        }),
     })
 });
 
@@ -199,4 +209,7 @@ export const {
     useUploadHomeImagesMutation,
     useReadHomeImagesQuery,
     useDeleteHomeImagesMutation,
+    // Integrity And Terms
+    useUpdateIntegrityTermMutation,
+    useReadIntegrityTermQuery,
 } = schoolsApi;

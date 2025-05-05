@@ -6,7 +6,9 @@ import {
     useUpdateFooterTopLinksMutation,
     useReadFooterTopLinksQuery,
     useUpdateFooterMiddleLinksMutation,
-    useReadFooterMiddleLinksQuery
+    useReadFooterMiddleLinksQuery,
+    useUpdateIntegrityTermMutation,
+    useReadIntegrityTermQuery
 } from '../features/schoolsApi';
 
 const Footer = () => {
@@ -14,6 +16,8 @@ const Footer = () => {
     const [updateFooterMiddleLinks] = useUpdateFooterMiddleLinksMutation();
     const { data: topLinks, isLoading } = useReadFooterTopLinksQuery();
     const { data: middleLinks, isMiddleLoading } = useReadFooterMiddleLinksQuery();
+    const [updateIntegrityTerm] = useUpdateIntegrityTermMutation();
+    const { data: intergityTermsData } = useReadIntegrityTermQuery();
     const [topMenu, setTopMenu] = useState(false);
     const [footerTop, setFooterTop] = useState({
         mobile: '',
@@ -28,6 +32,8 @@ const Footer = () => {
     });
     const [integrity, setIntegrity] = useState(false);
     const [terms, setTerms] = useState(false);
+    const [integrityText, setIntegrityText] = useState('');
+    const [termsText, setTermsText] = useState('');
 
     useEffect(() => {
         if(!topLinks) return;
@@ -48,6 +54,13 @@ const Footer = () => {
             link3: middleLinks.link3 || ''
         });
     }, [middleLinks]);
+
+    useEffect(() => {
+        if(intergityTermsData) {
+            setIntegrityText(intergityTermsData.integrity);
+            setTermsText(intergityTermsData.terms)
+        }
+    }, [intergityTermsData]);
 
     const handlePrepareLinks = (e) => {
         setFooterTop(prev => ({
@@ -88,6 +101,20 @@ const Footer = () => {
         } catch (err) {
             console.error('Update failed', err);
             alert('Fel uppstod vid uppdateringen.');
+        }
+    }
+
+    // Integrity and terms
+    const handleUpdateIntegrityTerms = async (k, v, set) => {
+        const newObj = {
+            [k]: v
+        }
+        try {
+            const res = await updateIntegrityTerm(newObj).unwrap();
+            if(res) set(false);
+        } catch (err) {
+            console.error('Error updating integrity and terms:', err);
+            alert('Ett fel uppstod vid uppdateringen');
         }
     }
 
@@ -160,14 +187,16 @@ const Footer = () => {
                         </span>
                     </p>
                     {integrity &&
-                    <div className='integritySettingsWrapper flexColumn gap5'>
-                        <textarea className='integrityTextarea styledInput1'></textarea>
-                        <button className='styledInput1'>Spara</button>
+                    <div className='integrityTermsSettingsWrapper flexColumn gap5'>
+                        <textarea className='integrityTextarea styledInput1' value={integrityText} onChange={e => setIntegrityText(e.target.value)}></textarea>
+                        {integrityText !== intergityTermsData?.integrity &&
+                        <button className='styledInput1' onClick={() => handleUpdateIntegrityTerms('integrity', integrityText, setIntegrity)}>Spara integritets text</button>}
                     </div>}
                     {terms &&
-                    <div className='termsSettingsWrapper flexColumn gap5'>
-                        <textarea className='termsTextarea styledInput1'></textarea>
-                        <button className='styledInput1'>Spara</button>
+                    <div className='integrityTermsSettingsWrapper flexColumn gap5'>
+                        <textarea className='termsTextarea styledInput1' value={termsText} onChange={e => setTermsText(e.target.value)}></textarea>
+                        {termsText !== intergityTermsData?.terms &&
+                        <button className='styledInput1' onClick={() => handleUpdateIntegrityTerms('terms', termsText, setTerms)}>Spara villkors text</button>}
                     </div>}
                 </div>
 

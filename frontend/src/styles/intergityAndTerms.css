@@ -8,3 +8,18 @@
 .integrityWrapper h1, .termsWrapper h1 {
     margin-bottom: 20px;
 }
+
+/* Settings */
+.integrityTermsSettingsWrapper {
+    margin: 10px auto;
+}
+.integrityTermsSettingsWrapper textarea {
+    min-height: 200px;
+    padding: 10px;
+}
+
+@media (min-width: 1024px) {
+    .integrityTermsSettingsWrapper {
+        width: 50%;
+    } 
+}
