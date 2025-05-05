@@ -2,8 +2,12 @@ import { useEffect } from 'react';
 import '../styles/pricesPage.css';
 import Footer from './Footer';
 import Header from './Header';
+import { useReadPricePageQuery } from '../features/schoolsApi';
+import { motion } from 'framer-motion';
 
 const PricesPage = () => {
+    const { data: priceCards, isPriceLoading } = useReadPricePageQuery();
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
@@ -24,54 +28,37 @@ const PricesPage = () => {
                         <p>I Katrineholm Trfaikskola kan vi hjälpa er att ansöka körkortstillstånd.</p>
                     </div>
                     <br />
-                    <h1>Prislistan</h1>
-                    <br />
-                    <div className='pricePageList flexColumn'>
-                        <div className='pricePageCard glassMorphism'>
-                            <div className='flexColumn'>
-                                <h2>Kostnad för lån av bil vid körprovet hos Trafikverket	</h2>
-                                <p>inkl. uppvärmning 30 min (obs endast till elever som gjort sin utbildning hos oss), ej för privat uppkörning!</p>
-                            </div>
-                            <div>
-                                <h1>1600:-</h1>
-                            </div>
-                        </div>
-                        <div className='pricePageCard glassMorphism'>
-                            <div className='flexColumn'>
-                                <h2>STARTPAKET personbil</h2>
-                                <p>Teorihjälp inskrivningsavgift 300kr, Riskutbildning 1, 900 kr, 6 st 60 minuters körlektioner 5970 kr, Rabatt 240 kr</p>
-                            </div>
-                            <div>
-                                <h1>6930:-</h1>
-                            </div>
-                        </div>
-                        <div className='pricePageCard glassMorphism'>
-                            <div className='flexColumn'>
-                                <h2>Körlektion</h2>
-                                <p>60 min</p>
-                            </div>
-                            <div>
-                                <h1>1000:-</h1>
-                            </div>
-                        </div>
-                        <div className='pricePageCard glassMorphism'>
-                            <div className='flexColumn'>
-                                <h2>Teoristöd</h2>
-                                <p>60 min lektion - Enskild teoriundervisning med lärare.</p>
-                            </div>
-                            <div>
-                                <h1>1450:-</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div>
+                    <div className='flexColumn gap5'>
                         <b>Observera att Trafikverkets kostnad tillkommer</b>
                         <p>– Kunskapsprov 420 kr</p>
                         <p>– Körprov 1000 kr</p>
                         <p>– Fotografering 120 kr</p>
                         <p>– Körkortstillverkning 250 kr</p>
                     </div>
+                    <br /><hr /><br />
+                    <h1>Prislistan</h1>
+                    <br />
+                    <div className='pricePageList flexColumn'>
+                        {priceCards?.map(priceCard => (
+                            <motion.div
+                                key={priceCard._id}
+                                className='pricePageCard glassMorphism'
+                                initial={{ opacity: 0, x: -200 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                                viewport={{ once: true, amount: 0.2 }}
+                            >
+                                <div className='flexColumn'>
+                                    <h2>{priceCard.title}</h2>
+                                    <p>{priceCard.description}</p>
+                                </div>
+                                <div>
+                                    <h1>{priceCard.price}:-</h1>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                    <br />
                 </div>
             </section>
             <Footer />

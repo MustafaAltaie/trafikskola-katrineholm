@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import '../styles/aboutPage.css';
 import { useReadAboutImagesQuery } from '../features/schoolsApi';
+import { motion } from 'framer-motion';
 
 const AboutPage = () => {
     const { data: images = [] } = useReadAboutImagesQuery();
@@ -34,9 +35,15 @@ const AboutPage = () => {
                     <br />
                     <div className="aboutPageImageWrapper">
                         {images.map((url, idx) => (
-                            <div key={idx}>
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, scale: 1.3 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                                viewport={{ once: true, amount: 0.2 }}
+                            >
                                 <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

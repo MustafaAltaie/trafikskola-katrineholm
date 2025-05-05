@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import '../styles/section5.css';
 import { useCreateReviewMutation, useReadReviewQuery, useReadReviewWrapperQuery } from '../features/schoolsApi';
 import SchoolsRating from './SchoolsRating';
+import { motion } from 'framer-motion';
 
 const Section5 = () => {
     const [form, setForm] = useState(false);
@@ -132,7 +133,16 @@ const Section5 = () => {
                 <button className='glassMorphism' onClick={e => {handleCreateReview(); e.preventDefault()}}>Skicka</button>
             </form>
             {!form &&
-            <button className='sec5SubbmitButton glassMorphism' onClick={() => setForm(true)}><h3>Dela gärna din upplevelse med oss!</h3></button>}
+            <motion.button
+                className='sec5SubbmitButton glassMorphism'
+                style={{ fontSize: '1.1rem' }}
+                onClick={() => setForm(true)}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+                viewport={{ once: true, amount: 0.5 }}
+            >Dela gärna din upplevelse med oss!
+            </motion.button>}
         </section>
     )}
 }

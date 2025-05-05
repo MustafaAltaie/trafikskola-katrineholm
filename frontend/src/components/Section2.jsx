@@ -1,4 +1,5 @@
 import '../styles/section2.css';
+import { motion } from 'framer-motion';
 
 const Section2 = () => {
     return (
@@ -19,7 +20,13 @@ const Section2 = () => {
                         </a>
                     </h3>
                 </div>
-                <div className='sec2Ads'>
+                <motion.div
+                    className='sec2Ads'
+                    initial={{ opacity: 0, x: -300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <h3>
                         <a
                             href='https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/?tab=korkort&eservice=korkortstillstand(grupp1)-ansok#eservice130157'
@@ -54,7 +61,7 @@ const Section2 = () => {
                             Plugga online
                         </a>
                     </h3>
-                </div>
+                </motion.div>
             </div>
         </section>
     )
