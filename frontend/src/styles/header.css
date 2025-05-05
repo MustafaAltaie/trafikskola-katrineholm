@@ -11,6 +11,15 @@ header > div{
     align-items: center;
     padding: 25px;
 }
+.logoWrapper {
+    height: 50px;
+    user-select: none;
+    cursor: pointer;
+}
+.logoWrapper > img {
+    height: 100%;
+    pointer-events: none;
+}
 .navToggleButton {
     display: flex;
     flex-direction: column;
@@ -55,6 +64,7 @@ header > nav > ul > li {
     border-top: solid 0.5px #ffffff4b;
     background: #000000aa;
     font-size: 20px;
+    user-select: none;
 }
 header > nav > ul > li > a {
     color: var(--textDark);
