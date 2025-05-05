@@ -5,9 +5,13 @@ import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
 import Section5 from "./components/Section5";
 import Footer from "./components/Footer";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}, []);
+
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
 
