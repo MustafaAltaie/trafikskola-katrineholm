@@ -1,6 +1,6 @@
 .section1 {
     padding-top: 50px;
-    height: 700px;
+    height: 900px;
     margin-bottom: 20px;
 }
 .Sec1ImageWrapper {
@@ -15,6 +15,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: 2s;
 }
 .homeImage {
@@ -31,7 +32,6 @@
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
-    gap: 20px;
     width: 100%;
 }
 .sec1DetailsWrapper > h1 {
