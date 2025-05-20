@@ -42,7 +42,7 @@ const AboutPage = () => {
                                 transition={{ duration: 0.8, ease: 'easeInOut' }}
                                 viewport={{ once: true, amount: 0.2 }}
                             >
-                                <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
+                                <img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${url}`} alt={`Uploaded ${idx}`} />
                             </motion.div>
                         ))}
                     </div>

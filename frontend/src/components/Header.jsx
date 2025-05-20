@@ -24,7 +24,7 @@ const Header = ({ scrollToSec3, scrollToSec4 }) => {
             <div>
                 <Link to='/'>
                     <div className='logoWrapper'>
-                        <img src="http://localhost:5000/images/app-images/logo1.png" alt="Katrineholm" />
+                        <img src="/images/logo1.png" alt="Katrineholm" />
                     </div>
                 </Link>
                 <div className='navToggleButton' onClick={() => setToggleBtn(!toggleBtn)}>

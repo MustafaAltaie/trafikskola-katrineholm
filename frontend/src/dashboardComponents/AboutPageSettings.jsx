@@ -71,7 +71,7 @@ const AboutPage = () => {
                     <div className="aboutPageImageWrapper">
                         {images.map((url, idx) => (
                             <div key={idx} onClick={() => handleDelete(url)}>
-                                <img src={`http://localhost:5000${url}`} alt={`Uploaded ${idx}`} />
+                                <img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${url}`} alt={`Uploaded ${idx}`} />
                             </div>
                         ))}
                         <div ref={buttonRef} className='aboutPageSettingsWrapper'>

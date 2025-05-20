@@ -24,7 +24,7 @@ const Header = () => {
             <div>
                 <Link to='/dashboard-secret-9xJq_v7Z-UltimateAccess88'>
                     <div className='logoWrapper'>
-                        <img src="http://localhost:5000/images/app-images/logo1.png" alt="Katrineholm" />
+                        <img src="/images/logo1.png" alt="Katrineholm" />
                     </div>
                 </Link>
                 <div className='navToggleButton' onClick={() => setToggleBtn(!toggleBtn)}>

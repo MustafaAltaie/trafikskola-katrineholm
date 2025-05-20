@@ -21,7 +21,7 @@ const Section1 = () => {
         <section className="section1">
             <div className='Sec1ImageWrapper'>
                 {images?.map((image, indx) =>
-                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
+                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${image}`} alt="img" />)}
             </div>
             <div className="sec1DetailsWrapper">
                 <h1>Välkommen till katrineholm-Eskilstuna trafikskolan i katrineholm</h1>

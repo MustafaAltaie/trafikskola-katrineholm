@@ -64,7 +64,7 @@ const Section1 = () => {
         <section className="section1">
             <div className='Sec1ImageWrapper'>
                 {images?.map((image, indx) =>
-                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`http://localhost:5000${image}`} alt="img" />)}
+                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${image}`} alt="img" />)}
                 <div className="settingsBtn" onClick={() => setMenu(true)}>
                     <div></div>
                     <div></div>
@@ -79,7 +79,7 @@ const Section1 = () => {
                     {imageMenu &&
                     <div ref={galleryRef} className="sec1ImagesWrapper">
                         {images.map((image, index) =>
-                        <div key={index} onClick={() => handleDelete(image)}><img src={`http://localhost:5000${image}`} alt="image" /></div>)}
+                        <div key={index} onClick={() => handleDelete(image)}><img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${image}`} alt="image" /></div>)}
                     </div>}
                     <p onClick={() => setMenu(false)}>Stäng meny</p>
                 </div>}
