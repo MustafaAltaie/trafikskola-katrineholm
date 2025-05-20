@@ -3,7 +3,7 @@ import '../styles/header.css';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-const Header = ({ scrollToSec3, scrollToSec4 }) => {
+const Header = () => {
     const [toggleBtn, setToggleBtn] = useState(false);
     const location = useLocation();
 

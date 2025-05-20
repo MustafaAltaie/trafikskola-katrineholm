@@ -21,7 +21,25 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://katrineholm-trafikskola.netlify.app',
+  'https://katrineholm-trafikskola.uk',
+  'https://www.katrineholm-trafikskola.uk',
+]
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin.toLowerCase())) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}
+app.use(cors(corsOptions));
+
 app.use(express.json());
 dotenv.config();
 connectDB();

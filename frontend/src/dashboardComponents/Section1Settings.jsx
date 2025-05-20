@@ -42,7 +42,7 @@ const Section1 = () => {
         try {
             await uploadHomeImages(formData).unwrap();
             setFile('');
-        } catch {
+        } catch (err) {
             console.log('Error occurred while uploading', err);
             alert('Kunde inte ladda upp bilden');
         }
