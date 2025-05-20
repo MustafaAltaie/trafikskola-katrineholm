@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import '../styles/aboutPage.css';
-import { useReadAboutImagesQuery } from '../features/schoolsApi';
-import { motion } from 'framer-motion';
+// import { useReadAboutImagesQuery } from '../features/schoolsApi';
+// import { motion } from 'framer-motion';
 
 const AboutPage = () => {
-    const { data: images = [] } = useReadAboutImagesQuery();
+    // const { data: images = [] } = useReadAboutImagesQuery();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,7 +33,7 @@ const AboutPage = () => {
                     <br />
                     <p>Kombinera gärna körningen på skolan med mängdträning hemma med din handledare. Givetvis har vi även intensivkurser för den som vill bli klar på kortare tid.</p>
                     <br />
-                    <div className="aboutPageImageWrapper">
+                    {/* <div className="aboutPageImageWrapper">
                         {images.map((url, idx) => (
                             <motion.div
                                 key={idx}
@@ -45,7 +45,7 @@ const AboutPage = () => {
                                 <img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${url}`} alt={`Uploaded ${idx}`} />
                             </motion.div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Footer />
