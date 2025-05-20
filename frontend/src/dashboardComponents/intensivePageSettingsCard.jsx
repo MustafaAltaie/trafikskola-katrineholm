@@ -9,7 +9,7 @@ const IntensivePageSettingsCard = ({ education, handlePrepareUpdate, handleDelet
             </div>
             {education.discount > 0 &&
             <i>Spara {education.discount}:-</i>}
-            <h3 dangerouslySetInnerHTML={{ __html: education.title.replace('/', '<br/>') }} />
+            {/* <h3 dangerouslySetInnerHTML={{ __html: education.title.replace('/', '<br/>') }} /> */}
             <div className='sec3CardInnerWrapper flexColumn'>
                 <div className='flexColumn'>
                     <h1 className="sec3CardPrice">{education.price}:-</h1>
