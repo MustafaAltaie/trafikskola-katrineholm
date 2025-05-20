@@ -102,6 +102,27 @@
     pointer-events: none;
 }
 
+/* settings */
+.homeImageSettingsWrapper {
+    z-index: 100;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    gap: 5px;
+}
+.homeImageSettingsWrapper > label > p, .homeImageSettingsWrapper > p {
+    padding: 20px 40px;
+    background: #00000055;
+    color: white !important;
+    cursor: pointer;
+}
+.changeImageLabel > input {
+    display: none;
+}
+.homeSection form > textarea {
+    margin-top: 20px;
+}
+
 
 /* Laptop scale */
 @media (min-width: 1024px) {

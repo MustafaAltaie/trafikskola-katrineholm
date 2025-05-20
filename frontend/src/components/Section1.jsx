@@ -1,28 +1,14 @@
 import '../styles/section1.css';
-import { useReadHomeImagesQuery } from '../features/schoolsApi';
-import { useEffect, useState } from 'react';
+import { useReadHomeImageQuery } from '../features/schoolsApi';
 
 const Section1 = () => {
-    const { data: images = [] } = useReadHomeImagesQuery();
-    const imagesLength = images.length;
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        if(imagesLength > 0) {
-            const imageInt = setInterval(() => {
-                setCount(prev => (prev + 1) % imagesLength);
-            }, 5000);
-    
-            return () => clearInterval(imageInt);  
-        }
-    }, [imagesLength]);
+    const { data: files = [] } = useReadHomeImageQuery();
 
     return (
         <section className="section1">
             <div className='Sec1ImageWrapper'>
-                {images?.map((image, indx) =>
-                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/images/${image}`} alt="img" />
-                )}
+            {files.length > 0 &&
+            <img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/images/home-image/homeImage.png`} alt="homeImage" />}
             </div>
             <div className="sec1DetailsWrapper">
                 <h1>Välkommen till katrineholm-Eskilstuna trafikskolan i katrineholm</h1>

@@ -1,38 +1,22 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/section1.css';
-import { useUploadHomeImagesMutation, useReadHomeImagesQuery, useDeleteHomeImagesMutation } from '../features/schoolsApi';
+import {
+    useUploadHomeImageMutation,
+    useReadHomeImageQuery,
+    useDeleteHomeImageMutation
+} from '../features/schoolsApi';
 
 const Section1 = () => {
-    const [menu, setMenu] = useState(false);
-    const [imageMenu, setImageMenu] = useState(false);
-    const [file, setFile] = useState(null);
-    const [uploadHomeImages] = useUploadHomeImagesMutation();
-    const { data: images = [] } = useReadHomeImagesQuery();
-    const [deleteHomeImages] = useDeleteHomeImagesMutation();
-    const galleryRef = useRef(null);
-    const [count, setCount] = useState(0);
-    const imagesLength = images.length;
+    const [file, setFile] = useState('');
+    const [uploadHomeImage] = useUploadHomeImageMutation();
+    const { data: files = [], refetch } = useReadHomeImageQuery();
+    const [deleteHomeImage] = useDeleteHomeImageMutation();
 
     useEffect(() => {
         if(file) {
             handleAddFile();
-            if(galleryRef.current) {
-                setTimeout(() => {
-                    galleryRef.current.scrollTo({ top: galleryRef.current.scrollHeight, behavior: 'smooth' });
-                }, 100);
-            }
         }
     }, [file]);
-
-    useEffect(() => {
-        if(imagesLength > 0) {
-            const imageInt = setInterval(() => {
-                setCount(prev => (prev + 1) % imagesLength);
-            }, 5000);
-
-            return () => clearInterval(imageInt);  
-        }
-    }, [imagesLength]);
 
 
     const handleAddFile = async () => {
@@ -40,20 +24,20 @@ const Section1 = () => {
         const formData = new FormData();
         formData.append('image', file);
         try {
-            await uploadHomeImages(formData).unwrap();
+            await uploadHomeImage(formData).unwrap();
             setFile('');
+            await refetch();
         } catch (err) {
             console.log('Error occurred while uploading', err);
             alert('Kunde inte ladda upp bilden');
         }
     }
 
-    const handleDelete = async (img) => {
+    const handleDelete = async () => {
         const deleteConfirm = confirm('Vill du radera bilder?');
         if(!deleteConfirm) return;
-        const file = img.split('/').pop();
         try {
-            await deleteHomeImages(file).unwrap();
+            await deleteHomeImage(file).unwrap();
         } catch (err) {
             console.error('Delete error:', err);
             alert('Kunde inte radera.');
@@ -63,26 +47,16 @@ const Section1 = () => {
     return (
         <section className="section1">
             <div className='Sec1ImageWrapper'>
-                {images?.map((image, indx) =>
-                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${image}`} alt="img" />)}
-                <div className="settingsBtn" onClick={() => setMenu(true)}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                {menu &&
-                <div className="sec1SettingsMenu bgLines">
-                    <label>Lägg till bilder
-                        <input type="file" onChange={e => setFile(e.target.files[0])} />
+                <div className='homeImageSettingsWrapper flexColumn'>
+                    <label className='changeImageLabel'>
+                        <input type="file" name='file' placeholder='File' onChange={e => setFile(e.target.files[0])} />
+                        <p>{files.length > 0 ? 'Byta bilden' : 'Ladda upp en bild'}</p>
                     </label>
-                    <p onClick={() => setImageMenu(!imageMenu)}>{imageMenu ? 'Dölj bilderna' : 'Visa bilderna'}</p>
-                    {imageMenu &&
-                    <div ref={galleryRef} className="sec1ImagesWrapper">
-                        {images.map((image, index) =>
-                        <div key={index} onClick={() => handleDelete(image)}><img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}${image}`} alt="image" /></div>)}
-                    </div>}
-                    <p onClick={() => setMenu(false)}>Stäng meny</p>
-                </div>}
+                    {files.length > 0 &&
+                    <p onClick={handleDelete}>Radera bilden</p>}
+                </div>
+                {files.length > 0 &&
+                <img src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/images/home-image/homeImage.png`} alt="homeImage" />}
             </div>
             <div className="sec1DetailsWrapper">
                 <h1>Välkommen till <span>katrineholm</span>-Eskilstuna <span>trafikskolan i katrineholm</span></h1>

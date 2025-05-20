@@ -11,13 +11,13 @@ import sec4SocialLinksRoutes from './routes/sec4SocialLinksRoutes.js';
 import pricePageRoutes from './routes/pricePageRoutes.js';
 import intensiveRoutes from './routes/intensiveRoutes.js';
 import aboutImagesRoutes from './routes/aboutImagesRoutes.js';
-import homeImagesRoutes from './routes/homeImagesRoutes.js';
+import homeImageRoutes from './routes/homeImageRoutes.js';
 import integrityAndTerm from './routes/integrityAndTermRoutes.js';
 import path from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
@@ -55,7 +55,7 @@ app.use('/api/intensive', intensiveRoutes);
 app.use('/about-images', express.static(path.join(__dirname, 'images', 'about-images')));
 app.use('/api/aboutImages', aboutImagesRoutes);
 app.use('/home-images', express.static(path.join(__dirname, 'images', 'home-images')));
-app.use('/api/homeImages', homeImagesRoutes);
+app.use('/api/homeImages', homeImageRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/integrityAndTerm', integrityAndTerm);
 

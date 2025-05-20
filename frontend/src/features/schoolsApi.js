@@ -145,15 +145,15 @@ export const schoolsApi = createApi({
             invalidatesTags: ['aboutImages']
         }),
         // Home images
-        uploadHomeImages: builder.mutation({
+        uploadHomeImage: builder.mutation({
             query: (formData) => ({ url: 'homeImages', method: 'POST', body: formData }),
             invalidatesTags: ['homeImages']
         }),
-        readHomeImages: builder.query({
+        readHomeImage: builder.query({
             query: () => 'homeImages',
             providesTags: ['homeImages']
         }),
-        deleteHomeImages: builder.mutation({
+        deleteHomeImage: builder.mutation({
             query: (file) => ({ url: `homeImages/${file}`, method: 'DELETE' }),
             invalidatesTags: ['homeImages']
         }),
@@ -206,9 +206,9 @@ export const {
     useReadAboutImagesQuery,
     useDeleteAboutImagesMutation,
     // Home images
-    useUploadHomeImagesMutation,
-    useReadHomeImagesQuery,
-    useDeleteHomeImagesMutation,
+    useUploadHomeImageMutation,
+    useReadHomeImageQuery,
+    useDeleteHomeImageMutation,
     // Integrity And Terms
     useUpdateIntegrityTermMutation,
     useReadIntegrityTermQuery,
