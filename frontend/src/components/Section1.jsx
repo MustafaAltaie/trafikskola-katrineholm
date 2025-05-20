@@ -6,7 +6,6 @@ const Section1 = () => {
     const { data: images = [] } = useReadHomeImagesQuery();
     const imagesLength = images.length;
     const [count, setCount] = useState(0);
-    const imageBaseUrl = import.meta.env.VITE_API_BASE_URL.replace('/api', ''); 
 
     useEffect(() => {
         if(imagesLength > 0) {
@@ -22,12 +21,7 @@ const Section1 = () => {
         <section className="section1">
             <div className='Sec1ImageWrapper'>
                 {images?.map((image, indx) =>
-                    <img
-                        key={indx}
-                        className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'}
-                        src={`${imageBaseUrl}${image}`}
-                        alt="img"
-                    />
+                    <img key={indx} className={(indx === count && imagesLength > 0) ? 'viewedHomeImage' : 'homeImage'} src={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/images/${image}`} alt="img" />
                 )}
             </div>
             <div className="sec1DetailsWrapper">
