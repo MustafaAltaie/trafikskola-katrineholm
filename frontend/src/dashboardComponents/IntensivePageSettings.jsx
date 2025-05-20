@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import FooterSettings from "./FooterSettings";
 import HeaderSettings from "./HeaderSettings";
 import '../styles/intensivePage.css';
-import IntensivePageSettingsCard from './IntensivePageSettingsCard';
 import { useCreateIntensiveMutation, useReadIntensiveQuery, useUpdateIntensiveMutation, useDeleteIntensiveMutation } from '../features/schoolsApi';
 
 const IntensivePage = () => {
@@ -149,12 +148,25 @@ const IntensivePage = () => {
                     <div className="intensivePageEducationWrapper flexColumn">
                         {isCardsLoading && <p>Laddning...</p>}
                         {intensiveCards?.map(education =>
-                            <IntensivePageSettingsCard
-                                key={education._id}
-                                education={education}
-                                handlePrepareUpdate={handlePrepareUpdate}
-                                handleDeleteIntensive={handleDeleteIntensive}
-                            />
+                            <div key={education._id} className="sec3Card flexColumn">
+                                <div className="sec3SettingsCardHeader">
+                                    <p onClick={() => handleDeleteIntensive(education._id)}>🗑️ Tabort</p>
+                                    <p onClick={() => handlePrepareUpdate(education)}>🖋️ Radigera</p>
+                                </div>
+                                {education.discount > 0 &&
+                                <i>Spara {education.discount}:-</i>}
+                                <h3 dangerouslySetInnerHTML={{ __html: education.title.replace('/', '<br/>') }} />
+                                <div className='sec3CardInnerWrapper flexColumn'>
+                                    <div className='flexColumn'>
+                                        <h1 className="sec3CardPrice">{education.price}:-</h1>
+                                        {education.discount > 0 &&
+                                        <p>Du sparar {education.discount}:-</p>}
+                                    </div>
+                                    <ul className='flexColumn'>
+                                        {education.list.map(option => <li key={option}>- {option}</li>)}
+                                    </ul>
+                                </div>
+                            </div>
                         )}
                     </div>}
                     <h1
