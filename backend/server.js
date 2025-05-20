@@ -14,10 +14,10 @@ import aboutImagesRoutes from './routes/aboutImagesRoutes.js';
 import homeImagesRoutes from './routes/homeImagesRoutes.js';
 import integrityAndTerm from './routes/integrityAndTermRoutes.js';
 import path from 'path';
-import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
