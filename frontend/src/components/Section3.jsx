@@ -10,10 +10,6 @@ const Section3 = forwardRef((props, ref) => {
 
     return (
         <section className="section3" ref={ref}>
-            {isLoading &&
-            <div className="startServerModel">
-                <h1>Vänta lite medan servern startas upp...</h1>
-            </div>}
             <h1>Våra Utbildningar</h1>
             <div>
                 <div className="sec3CardWrapper">

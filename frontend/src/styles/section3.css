@@ -1,21 +1,6 @@
 .section3 {
     padding-top: 50px;
 }
-.startServerModel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 50px 20px;
-    border: solid 0.7px;
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
-    width: 80%;
-}
-.startServerModel > h1 {
-    line-height: 3rem;
-    text-align: center;
-}
 .section3 > h1 {
     background-color: #0079e39f;
     color: #fff;
@@ -25,7 +10,7 @@
     text-align: center;
 }
 .section3 > div {
-    background-image: url("http://localhost:5000/images/app-images/car1.webp");
+    background-image: url("/images/car1.webp");
     background-attachment: fixed;
     background-size: 100% 100%;
     background-color: #ddd;
