@@ -59,6 +59,8 @@ app.use('/api/homeImages', homeImageRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/integrityAndTerm', integrityAndTerm);
 
+app.get('/ping', (req, res) => res.send('pong'));
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`)
